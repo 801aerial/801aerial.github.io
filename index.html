@@ -3,373 +3,1062 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="801 Aerial offers luxury real estate drone photography and video services across Utah. Stunning aerial imagery for high-end properties.">
+  <meta name="description" content="801 Aerial — Cinematic drone photography and videography for luxury real estate in Utah.">
   <meta property="og:title" content="801 Aerial | Luxury Real Estate Drone Services">
-  <meta property="og:description" content="High-end aerial photography and drone video tours for luxury properties in Utah.">
+  <meta property="og:description" content="Cinematic aerial imagery for Utah's finest luxury properties.">
   <meta property="og:type" content="website">
   <title>801 Aerial | Luxury Real Estate Drone Services</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C96A;
+      --black: #080808;
+      --dark: #111111;
+      --dark2: #1a1a1a;
+      --gray: #888;
+      --light: #f0f0f0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Montserrat', Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      background: #111;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--black);
       color: #fff;
+      overflow-x: hidden;
     }
-    header {
-      width: 100%;
-      background: #000;
-      padding: 36px 0 20px 0;
-      border-bottom: 2px solid gold;
-    }
-    .logo {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: gold;
-      letter-spacing: 3px;
-      margin-bottom: 0.4rem;
-    }
-    .subtitle {
-      color: #ccc;
-      font-size: 1.1rem;
-      font-weight: 400;
-      letter-spacing: 1.5px;
-    }
-    nav {
-      margin-top: 18px;
+
+    /* ── NAVBAR ───────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 24px 48px;
       display: flex;
-      justify-content: center;
-      gap: 32px;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s, padding 0.4s, backdrop-filter 0.4s;
     }
-    nav a {
-      color: #fff;
+    .nav.scrolled {
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(12px);
+      padding: 16px 48px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .nav-logo img {
+      height: 44px;
+      object-fit: contain;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    nav a:hover { color: gold; }
-    main {
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold) !important;
+      padding: 9px 22px;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s !important;
+    }
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--black) !important;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ─────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      max-width: 900px;
-      margin: 48px auto 0 auto;
-      padding: 0 20px;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.35) 0%,
+        rgba(0,0,0,0.5) 60%,
+        rgba(8,8,8,1) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+      max-width: 800px;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.55s forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.5px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.75s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.95s forwards;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: 2px;
+      border: 1px solid rgba(255,255,255,0.4);
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: #fff;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.4s forwards;
     }
-    /* Hero */
-    .hero {
-      width: 100%;
-      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-      border: 1px solid gold;
-      border-radius: 18px;
-      padding: 52px 32px;
-      margin-bottom: 40px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.8);
-    }
-    .hero h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: gold;
-      margin: 0 0 14px 0;
-      line-height: 1.2;
-    }
-    .hero p {
-      font-size: 1.15rem;
-      color: #ccc;
-      margin: 0 0 28px 0;
-      line-height: 1.6;
-    }
-    .cta-btn {
-      display: inline-block;
-      background: gold;
-      color: #111;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 14px 36px;
-      border-radius: 8px;
-      text-decoration: none;
-      letter-spacing: 1px;
+    .hero-scroll span {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      transition: background 0.2s, transform 0.15s;
+      color: rgba(255,255,255,0.5);
     }
-    .cta-btn:hover {
-      background: #ffd700;
-      transform: translateY(-2px);
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
     }
-    /* Services */
-    .services {
-      background: rgba(20,20,20,0.95);
-      border: 1px solid gold;
-      border-radius: 16px;
-      padding: 36px 28px;
-      margin-bottom: 40px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.7);
-      width: 100%;
+
+    /* ── SECTION COMMONS ──────────────────────────── */
+    section {
+      padding: 100px 48px;
     }
-    .services h2 {
-      color: gold;
-      font-size: 1.6rem;
-      margin: 0 0 22px 0;
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 16px;
     }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 18px;
-      text-align: left;
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 20px;
     }
-    .service-card {
-      background: #1a1a1a;
-      border: 1px solid #333;
-      border-radius: 10px;
-      padding: 20px 16px;
-      border-left: 4px solid gold;
-    }
-    .service-card h3 {
-      color: gold;
-      font-size: 1rem;
-      margin: 0 0 8px 0;
-    }
-    .service-card p {
-      color: #bbb;
-      font-size: 0.9rem;
-      margin: 0;
-      line-height: 1.5;
-    }
-    /* Portfolio */
-    .portfolio {
-      background: #181818;
-      border-radius: 16px;
-      border: 1px solid gold;
-      padding: 36px 20px;
-      margin-bottom: 40px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.7);
-      width: 100%;
-    }
-    .portfolio h2 {
-      color: gold;
-      font-size: 1.6rem;
-      margin: 0 0 22px 0;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-    .gallery img {
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 2px solid #2a2a2a;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.6);
-      transition: transform 0.2s, border-color 0.2s;
-    }
-    .gallery img:hover {
-      transform: scale(1.03);
-      border-color: gold;
-    }
-    /* Booking */
-    .booking {
-      background: #181818;
-      border-radius: 16px;
-      border: 1px solid gold;
-      padding: 36px 24px;
-      margin-bottom: 40px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.7);
-      width: 100%;
+    .section-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
       max-width: 520px;
     }
-    .booking h2 {
-      color: gold;
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 28px 0;
+    }
+
+    /* ── REVEAL ANIMATION ─────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── SERVICES ─────────────────────────────────── */
+    #services {
+      background: var(--dark);
+      max-width: 100%;
+    }
+    .services-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .services-left {}
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .service-card {
+      background: var(--dark2);
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 2px;
+      height: 0;
+      background: var(--gold);
+      transition: height 0.4s ease;
+    }
+    .service-card:hover::before { height: 100%; }
+    .service-card:hover { background: #222; }
+    .service-icon {
       font-size: 1.6rem;
-      margin: 0 0 22px 0;
+      margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .service-card p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+
+    /* ── GALLERY ──────────────────────────────────── */
+    #portfolio {
+      background: var(--black);
+      max-width: 100%;
+    }
+    .portfolio-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .portfolio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 4px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: #1a1a1a;
+    }
+    .gallery-item:first-child {
+      grid-column: span 2;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .gallery-item:hover .gallery-overlay {
+      background: rgba(0,0,0,0.35);
+    }
+    .gallery-overlay span {
+      color: #fff;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .gallery-item:hover .gallery-overlay span {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── LIGHTBOX ─────────────────────────────────── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0,0,0,0.95);
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px; right: 32px;
+      font-size: 2rem;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: var(--gold); }
+
+    /* ── SHOWREEL ─────────────────────────────────── */
+    #showreel {
+      background: var(--dark);
+      padding: 100px 48px;
+    }
+    .showreel-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .showreel-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 52px;
+    }
+    .featured-video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      overflow: hidden;
+    }
+    .featured-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      margin-top: 4px;
+    }
+    .video-card {
+      position: relative;
+      background: #000;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .video-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .video-card:hover video { transform: scale(1.04); }
+    .video-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.3s;
+    }
+    .video-card:hover .video-card-overlay { background: rgba(0,0,0,0.2); }
+    .play-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .play-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: #fff;
+      margin-left: 3px;
+    }
+    .video-card:hover .play-btn {
+      border-color: var(--gold);
+      transform: scale(1.1);
+    }
+    .video-card:hover .play-btn svg { fill: var(--gold); }
+    .video-card-label {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* Video modal */
+    .video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0,0,0,0.97);
+      align-items: center;
+      justify-content: center;
+    }
+    .video-modal.open { display: flex; }
+    .video-modal video {
+      max-width: 90vw;
+      max-height: 85vh;
+      outline: none;
+    }
+    .video-modal-close {
+      position: absolute;
+      top: 24px; right: 32px;
+      font-size: 2rem;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .video-modal-close:hover { color: var(--gold); }
+
+    /* ── BOOKING ──────────────────────────────────── */
+    #booking {
+      background: var(--black);
+      padding: 100px 48px;
+    }
+    .booking-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
     }
     .booking-form {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      align-items: stretch;
-      text-align: left;
+      gap: 0;
     }
-    .booking-form label {
-      color: gold;
-      font-size: 0.9rem;
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
       font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 2px;
     }
-    .booking-form input,
-    .booking-form textarea {
-      padding: 11px 12px;
-      border-radius: 6px;
-      border: 1px solid #333;
-      background: #222;
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
       color: #fff;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 1rem;
-      resize: vertical;
-      transition: border-color 0.2s;
-    }
-    .booking-form input:focus,
-    .booking-form textarea:focus {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      padding: 14px 16px;
       outline: none;
-      border-color: gold;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
     }
-    .booking-form button {
-      background: gold;
-      color: #111;
-      border: none;
-      border-radius: 6px;
-      padding: 13px;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--gold);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select option { background: var(--dark2); }
+    .booking-form .btn-primary {
+      width: 100%;
+      margin-top: 8px;
+      font-size: 0.75rem;
+    }
+    .booking-info {
+      padding-top: 20px;
+    }
+    .booking-detail {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+      align-items: flex-start;
+    }
+    .booking-detail-icon {
+      font-size: 1.2rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .booking-detail h4 {
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .booking-detail p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+    .booking-detail a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .booking-detail a:hover { color: var(--gold); }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    footer img {
+      height: 32px;
+      object-fit: contain;
+    }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.5px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-size: 0.75rem;
       letter-spacing: 1px;
       text-transform: uppercase;
-      transition: background 0.2s, transform 0.15s;
-      margin-top: 6px;
-    }
-    .booking-form button:hover {
-      background: #ffd700;
-      transform: translateY(-1px);
-    }
-    .booking-note {
-      color: #888;
-      font-size: 0.9rem;
-      margin-top: 10px;
-    }
-    /* Contact */
-    .contact {
-      background: #181818;
-      border-radius: 14px;
-      padding: 32px 24px;
-      border: 1px solid #2a2a2a;
-      margin-bottom: 40px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.5);
-      width: 100%;
-      max-width: 500px;
-    }
-    .contact h2 {
-      color: gold;
-      font-size: 1.6rem;
-      margin: 0 0 18px 0;
-    }
-    .contact-info {
-      font-size: 1.05rem;
-      margin-bottom: 10px;
-      color: #ccc;
-    }
-    .contact-info a {
-      color: gold;
+      color: rgba(255,255,255,0.4);
       text-decoration: none;
-      font-weight: 600;
+      transition: color 0.2s;
     }
-    .contact-info a:hover { text-decoration: underline; }
-    footer {
-      width: 100%;
-      background: #000;
-      color: #666;
-      text-align: center;
-      padding: 20px 0 14px 0;
-      font-size: 0.9rem;
-      border-top: 1px solid #1a1a1a;
-      letter-spacing: 0.5px;
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── KEYFRAMES ────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
     }
-    @media (max-width: 600px) {
-      .logo { font-size: 2rem; }
-      nav { gap: 20px; }
-      main { margin-top: 28px; padding: 0 12px; }
-      .hero { padding: 36px 18px; }
-      .hero h1 { font-size: 1.6rem; }
-      .services, .contact, .portfolio, .booking { padding: 22px 12px; }
-      .gallery img { height: 120px; }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.5; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(1.15); }
+    }
+
+    /* ── MOBILE ───────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav { padding: 20px 24px; }
+      .nav.scrolled { padding: 14px 24px; }
+      .nav-links { display: none; flex-direction: column; position: fixed; top: 0; right: 0; bottom: 0; width: 260px; background: rgba(8,8,8,0.97); padding: 80px 32px 32px; gap: 24px; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      section { padding: 72px 24px; }
+      .services-inner { grid-template-columns: 1fr; gap: 48px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:first-child { grid-column: span 2; }
+      .showreel-header { grid-template-columns: 1fr; gap: 32px; }
+      .video-grid { grid-template-columns: 1fr 1fr; }
+      .booking-inner { grid-template-columns: 1fr; gap: 48px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; padding: 36px 24px; }
+      .footer-links { justify-content: center; }
+    }
+    @media (max-width: 540px) {
+      .hero-title { font-size: 2.4rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item:first-child { grid-column: span 1; }
+      .video-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">801 Aerial</div>
-    <div class="subtitle">Luxury Real Estate Drone Services &mdash; Utah</div>
-    <nav>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="nav" id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="assets/logo/logo.png" alt="801 Aerial">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#showreel">Work</a></li>
+      <li><a href="#booking" class="nav-cta">Book a Shoot</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/fountianhill.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Utah &nbsp;·&nbsp; Luxury Real Estate &nbsp;·&nbsp; Drone Services</p>
+      <h1 class="hero-title">Where <em>Elevation</em><br>Meets Excellence</h1>
+      <p class="hero-sub">Cinematic aerial photography and video for Utah's most distinguished properties.</p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-primary">Book a Shoot</a>
+        <a href="#portfolio" class="btn-outline">View Portfolio</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section id="services">
+    <div class="services-inner">
+      <div class="services-left reveal">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-title">Crafted for Luxury,<br>Built to Impress</h2>
+        <div class="divider"></div>
+        <p class="section-sub">We specialize in high-end aerial imagery that showcases Utah's finest properties from angles that stop buyers in their tracks.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">📷</div>
+          <h3>Aerial Photography</h3>
+          <p>High-resolution stills that capture every angle of your listing in stunning detail.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon">🎬</div>
+          <h3>Drone Video</h3>
+          <p>Cinematic flyovers and tours that captivate buyers before they set foot inside.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon">✂️</div>
+          <h3>Post Production</h3>
+          <p>Professional color grading and editing to ensure every frame is picture perfect.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-4">
+          <div class="service-icon">🏔️</div>
+          <h3>Utah Specialists</h3>
+          <p>We know Utah's landscapes — mountains, valleys, and everything in between.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PORTFOLIO ── -->
+  <section id="portfolio">
+    <div class="portfolio-inner">
+      <div class="portfolio-header">
+        <div class="reveal">
+          <p class="section-label">Photography</p>
+          <h2 class="section-title">Portfolio Gallery</h2>
+        </div>
+        <p class="section-sub reveal" style="margin:0">A selection of our aerial photography work across Utah's luxury market.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item" onclick="openLightbox('assets/photos/photo1.jpg')">
+          <img src="assets/photos/photo1.jpg" alt="Luxury aerial property" loading="lazy">
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('assets/photos/photo3.png')">
+          <img src="assets/photos/photo3.png" alt="Aerial property shot" loading="lazy">
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('assets/photos/photo4.png')">
+          <img src="assets/photos/photo4.png" alt="Utah drone photography" loading="lazy">
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('assets/photos/photo5.png')">
+          <img src="assets/photos/photo5.png" alt="Luxury real estate aerial" loading="lazy">
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('assets/photos/photo6.jpg')">
+          <img src="assets/photos/photo6.jpg" alt="Drone property photo" loading="lazy">
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SHOWREEL ── -->
+  <section id="showreel">
+    <div class="showreel-inner">
+      <div class="showreel-header">
+        <div class="reveal">
+          <p class="section-label">Video Work</p>
+          <h2 class="section-title">See It in Motion</h2>
+          <div class="divider"></div>
+        </div>
+        <p class="section-sub reveal" style="margin:0">From sweeping flyovers to intimate property walkthroughs — every shoot tells a story.</p>
+      </div>
+
+      <div class="featured-video-wrap reveal">
+        <video controls preload="metadata" poster="">
+          <source src="assets/videos/edited.MP4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="video-grid">
+        <div class="video-card reveal reveal-delay-1" onclick="openVideo('assets/videos/springdrive.mp4')">
+          <video muted preload="none" src="assets/videos/springdrive.mp4"></video>
+          <div class="video-card-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <span class="video-card-label">Spring Drive</span>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-2" onclick="openVideo('assets/videos/GroveHomeParade.mp4')">
+          <video muted preload="none" src="assets/videos/GroveHomeParade.mp4"></video>
+          <div class="video-card-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <span class="video-card-label">Grove Home</span>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-3" onclick="openVideo('assets/videos/Untitled.mp4')">
+          <video muted preload="none" src="assets/videos/Untitled.mp4"></video>
+          <div class="video-card-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <span class="video-card-label">Featured Property</span>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-1" onclick="openVideo('assets/videos/jeep copy.mp4')">
+          <video muted preload="none" src="assets/videos/jeep copy.mp4"></video>
+          <div class="video-card-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <span class="video-card-label">Jeep Trail</span>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-2" onclick="openVideo('assets/videos/DJI_20260410200315_0003_D.MP4')">
+          <video muted preload="none" src="assets/videos/DJI_20260410200315_0003_D.MP4"></video>
+          <div class="video-card-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <span class="video-card-label">Aerial Shoot</span>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-3" onclick="openVideo('assets/videos/DJI_20260420152117_0014_D.MP4')">
+          <video muted preload="none" src="assets/videos/DJI_20260420152117_0014_D.MP4"></video>
+          <div class="video-card-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <span class="video-card-label">Property Flyover</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BOOKING ── -->
+  <section id="booking">
+    <div class="booking-inner">
+      <div class="booking-info reveal">
+        <p class="section-label">Get In Touch</p>
+        <h2 class="section-title">Ready to Elevate<br>Your Listing?</h2>
+        <div class="divider"></div>
+        <p class="section-sub" style="margin-bottom:48px">Fill out the form and we'll get back to you within 24 hours to confirm your shoot.</p>
+
+        <div class="booking-detail">
+          <div class="booking-detail-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:8019001713">801-900-1713</a></p>
+          </div>
+        </div>
+        <div class="booking-detail">
+          <div class="booking-detail-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:801aerial@gmail.com">801aerial@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="booking-detail">
+          <div class="booking-detail-icon">📍</div>
+          <div>
+            <h4>Service Area</h4>
+            <p>Greater Salt Lake City &amp; surrounding Utah counties</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <form class="booking-form" name="booking" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="booking">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(801) 000-0000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="service">Service</label>
+            <select id="service" name="service">
+              <option value="">Select a service...</option>
+              <option>Aerial Photography</option>
+              <option>Drone Video Tour</option>
+              <option>Photography + Video Package</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="details">Project Details</label>
+            <textarea id="details" name="details" placeholder="Property address, type of property, preferred shoot date..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <img src="assets/logo/logo.png" alt="801 Aerial">
+    <p class="footer-copy">&copy; 2026 801 Aerial. All rights reserved.</p>
+    <nav class="footer-links">
       <a href="#services">Services</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#booking">Book</a>
-      <a href="#contact">Contact</a>
     </nav>
-  </header>
-  <main>
-    <section class="hero">
-      <h1>Elevate Your Listings<br>with Aerial Mastery</h1>
-      <p>We capture Utah's finest properties from breathtaking angles — delivering cinematic drone photography and video that sells luxury real estate faster.</p>
-      <a href="#booking" class="cta-btn">Book a Shoot</a>
-    </section>
-
-    <section class="services" id="services">
-      <h2>Our Services</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Aerial Photography</h3>
-          <p>High-resolution drone photos that showcase every angle of your luxury listing.</p>
-        </div>
-        <div class="service-card">
-          <h3>Drone Video Tours</h3>
-          <p>Cinematic flyover and walkthrough video that captivates buyers before they set foot inside.</p>
-        </div>
-        <div class="service-card">
-          <h3>Photo & Video Editing</h3>
-          <p>Professional post-processing to ensure every shot looks its absolute best.</p>
-        </div>
-        <div class="service-card">
-          <h3>Utah Real Estate</h3>
-          <p>Specialists in showcasing Utah's finest properties — mountains, valleys, and everything in between.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="portfolio" id="portfolio">
-      <h2>Portfolio Gallery</h2>
-      <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Luxury Home Aerial View">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Utah Landscape Aerial">
-        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Luxury Property Drone Shot">
-        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80" alt="Real Estate Aerial Photography">
-      </div>
-    </section>
-
-    <section class="booking" id="booking">
-      <h2>Book a Drone Shoot</h2>
-      <form class="booking-form" name="booking" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="booking">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your full name" required>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="your@email.com" required>
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" placeholder="(801) 000-0000">
-        <label for="details">Project Details</label>
-        <textarea id="details" name="details" rows="4" placeholder="Property address, type of shoot, preferred date..." required></textarea>
-        <button type="submit">Request Booking</button>
-      </form>
-      <p class="booking-note">We'll get back to you within 24 hours.</p>
-    </section>
-
-    <section class="contact" id="contact">
-      <h2>Contact</h2>
-      <div class="contact-info">Phone: <a href="tel:8019001713">801-900-1713</a></div>
-      <div class="contact-info">Email: <a href="mailto:801aerial@gmail.com">801aerial@gmail.com</a></div>
-    </section>
-  </main>
-  <footer>
-    &copy; 2026 801 Aerial &mdash; Luxury Real Estate Drone Services. All rights reserved.
   </footer>
+
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  </div>
+
+  <!-- ── VIDEO MODAL ── -->
+  <div class="video-modal" id="videoModal">
+    <button class="video-modal-close" onclick="closeVideo()">&#x2715;</button>
+    <video id="modalVideo" controls></video>
+  </div>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Lightbox
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    // Video modal
+    function openVideo(src) {
+      const v = document.getElementById('modalVideo');
+      v.src = src;
+      document.getElementById('videoModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      v.play();
+    }
+    function closeVideo() {
+      const v = document.getElementById('modalVideo');
+      v.pause();
+      v.src = '';
+      document.getElementById('videoModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('videoModal').addEventListener('click', function(e) {
+      if (e.target === this) closeVideo();
+    });
+
+    // Keyboard close
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeLightbox(); closeVideo(); }
+    });
+  </script>
 </body>
 </html>
