@@ -1,185 +1,297 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="801 Aerial offers luxury real estate drone photography and video services across Utah. Stunning aerial imagery for high-end properties.">
+  <meta property="og:title" content="801 Aerial | Luxury Real Estate Drone Services">
+  <meta property="og:description" content="High-end aerial photography and drone video tours for luxury properties in Utah.">
+  <meta property="og:type" content="website">
   <title>801 Aerial | Luxury Real Estate Drone Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { 
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
       font-family: 'Montserrat', Arial, sans-serif;
       text-align: center;
       margin: 0;
       background: #111;
       color: #fff;
     }
-    h1 { margin-top: 50px; }
     header {
       width: 100%;
       background: #000;
-      padding: 32px 0 16px 0;
+      padding: 36px 0 20px 0;
       border-bottom: 2px solid gold;
     }
     .logo {
       font-size: 2.8rem;
       font-weight: 700;
       color: gold;
-      letter-spacing: 2px;
-      margin-bottom: 0.5rem;
+      letter-spacing: 3px;
+      margin-bottom: 0.4rem;
     }
     .subtitle {
-      color: #fff;
-      font-size: 1.2rem;
+      color: #ccc;
+      font-size: 1.1rem;
       font-weight: 400;
-      letter-spacing: 1px;
-      margin-bottom: 0.5rem;
+      letter-spacing: 1.5px;
     }
+    nav {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: gold; }
     main {
-      flex: 1;
       width: 100%;
       max-width: 900px;
-      margin: 40px auto 0 auto;
-      padding: 0 16px;
+      margin: 48px auto 0 auto;
+      padding: 0 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+    /* Hero */
+    .hero {
+      width: 100%;
+      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+      border: 1px solid gold;
+      border-radius: 18px;
+      padding: 52px 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: gold;
+      margin: 0 0 14px 0;
+      line-height: 1.2;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: #ccc;
+      margin: 0 0 28px 0;
+      line-height: 1.6;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: gold;
+      color: #111;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 36px;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .cta-btn:hover {
+      background: #ffd700;
+      transform: translateY(-2px);
+    }
+    /* Services */
     .services {
       background: rgba(20,20,20,0.95);
       border: 1px solid gold;
       border-radius: 16px;
-      padding: 32px 24px;
-      margin-bottom: 32px;
+      padding: 36px 28px;
+      margin-bottom: 40px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.7);
+      width: 100%;
     }
     .services h2 {
       color: gold;
-      font-size: 1.5rem;
-      margin-bottom: 18px;
+      font-size: 1.6rem;
+      margin: 0 0 22px 0;
     }
-    .services ul {
-      list-style: none;
-      padding: 0;
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+      text-align: left;
+    }
+    .service-card {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px 16px;
+      border-left: 4px solid gold;
+    }
+    .service-card h3 {
+      color: gold;
+      font-size: 1rem;
+      margin: 0 0 8px 0;
+    }
+    .service-card p {
+      color: #bbb;
+      font-size: 0.9rem;
       margin: 0;
+      line-height: 1.5;
     }
-    .services li {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-      color: #fff;
-      border-left: 3px solid gold;
-      padding-left: 12px;
-    }
+    /* Portfolio */
     .portfolio {
       background: #181818;
       border-radius: 16px;
       border: 1px solid gold;
-      padding: 32px 18px;
-      margin-bottom: 32px;
+      padding: 36px 20px;
+      margin-bottom: 40px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.7);
       width: 100%;
-      max-width: 800px;
     }
     .portfolio h2 {
       color: gold;
-      margin-bottom: 18px;
+      font-size: 1.6rem;
+      margin: 0 0 22px 0;
     }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-bottom: 10px;
+      gap: 16px;
     }
     .gallery img {
       width: 100%;
-      height: 160px;
+      height: 170px;
       object-fit: cover;
       border-radius: 10px;
-      border: 2px solid #333;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-      background: #222;
+      border: 2px solid #2a2a2a;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.6);
+      transition: transform 0.2s, border-color 0.2s;
     }
+    .gallery img:hover {
+      transform: scale(1.03);
+      border-color: gold;
+    }
+    /* Booking */
     .booking {
       background: #181818;
       border-radius: 16px;
       border: 1px solid gold;
-      padding: 32px 18px;
-      margin-bottom: 32px;
+      padding: 36px 24px;
+      margin-bottom: 40px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.7);
       width: 100%;
-      max-width: 500px;
+      max-width: 520px;
     }
     .booking h2 {
       color: gold;
-      margin-bottom: 18px;
+      font-size: 1.6rem;
+      margin: 0 0 22px 0;
     }
     .booking-form {
       display: flex;
       flex-direction: column;
       gap: 14px;
       align-items: stretch;
+      text-align: left;
+    }
+    .booking-form label {
+      color: gold;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
     }
     .booking-form input,
     .booking-form textarea {
-      padding: 10px;
+      padding: 11px 12px;
       border-radius: 6px;
       border: 1px solid #333;
       background: #222;
       color: #fff;
+      font-family: 'Montserrat', Arial, sans-serif;
       font-size: 1rem;
       resize: vertical;
+      transition: border-color 0.2s;
     }
-    .booking-form label {
-      text-align: left;
-      color: gold;
-      font-size: 1rem;
-      margin-bottom: 2px;
+    .booking-form input:focus,
+    .booking-form textarea:focus {
+      outline: none;
+      border-color: gold;
     }
     .booking-form button {
       background: gold;
       color: #111;
       border: none;
       border-radius: 6px;
-      padding: 12px;
-      font-size: 1.1rem;
+      padding: 13px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 6px;
     }
     .booking-form button:hover {
       background: #ffd700;
+      transform: translateY(-1px);
     }
+    .booking-note {
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+    /* Contact */
     .contact {
       background: #181818;
-      border-radius: 12px;
-      padding: 24px 18px;
-      border: 1px solid #333;
-      color: #fff;
-      margin-bottom: 32px;
+      border-radius: 14px;
+      padding: 32px 24px;
+      border: 1px solid #2a2a2a;
+      margin-bottom: 40px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      width: 100%;
+      max-width: 500px;
     }
     .contact h2 {
       color: gold;
-      margin-bottom: 12px;
+      font-size: 1.6rem;
+      margin: 0 0 18px 0;
     }
     .contact-info {
-      font-size: 1.1rem;
-      margin-bottom: 6px;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      color: #ccc;
     }
+    .contact-info a {
+      color: gold;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-info a:hover { text-decoration: underline; }
     footer {
       width: 100%;
       background: #000;
-      color: #888;
+      color: #666;
       text-align: center;
-      padding: 18px 0 12px 0;
-      font-size: 0.95rem;
-      border-top: 1px solid #222;
+      padding: 20px 0 14px 0;
+      font-size: 0.9rem;
+      border-top: 1px solid #1a1a1a;
+      letter-spacing: 0.5px;
     }
     @media (max-width: 600px) {
       .logo { font-size: 2rem; }
-      main { margin-top: 20px; }
-      .services, .contact, .portfolio, .booking { padding: 18px 8px; }
-      .gallery img { height: 110px; }
+      nav { gap: 20px; }
+      main { margin-top: 28px; padding: 0 12px; }
+      .hero { padding: 36px 18px; }
+      .hero h1 { font-size: 1.6rem; }
+      .services, .contact, .portfolio, .booking { padding: 22px 12px; }
+      .gallery img { height: 120px; }
     }
   </style>
 </head>
@@ -187,48 +299,73 @@
   <header>
     <div class="logo">801 Aerial</div>
     <div class="subtitle">Luxury Real Estate Drone Services &mdash; Utah</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#booking">Book</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
   <main>
-    <section class="services">
-      <h2>Our Services</h2>
-      <ul>
-        <li>High-end Aerial Photography for Luxury Properties</li>
-        <li>Stunning Drone Video Tours</li>
-        <li>Basic Photo & Video Editing</li>
-        <li>Showcase Utah's Finest Real Estate</li>
-      </ul>
+    <section class="hero">
+      <h1>Elevate Your Listings<br>with Aerial Mastery</h1>
+      <p>We capture Utah's finest properties from breathtaking angles — delivering cinematic drone photography and video that sells luxury real estate faster.</p>
+      <a href="#booking" class="cta-btn">Book a Shoot</a>
     </section>
-    <section class="portfolio">
+
+    <section class="services" id="services">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Aerial Photography</h3>
+          <p>High-resolution drone photos that showcase every angle of your luxury listing.</p>
+        </div>
+        <div class="service-card">
+          <h3>Drone Video Tours</h3>
+          <p>Cinematic flyover and walkthrough video that captivates buyers before they set foot inside.</p>
+        </div>
+        <div class="service-card">
+          <h3>Photo & Video Editing</h3>
+          <p>Professional post-processing to ensure every shot looks its absolute best.</p>
+        </div>
+        <div class="service-card">
+          <h3>Utah Real Estate</h3>
+          <p>Specialists in showcasing Utah's finest properties — mountains, valleys, and everything in between.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
       <h2>Portfolio Gallery</h2>
       <div class="gallery">
-        <!-- Replace src with your real images -->
-        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Luxury Home 1">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Luxury Home 2">
-        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Luxury Home 3">
-        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80" alt="Luxury Home 4">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Luxury Home Aerial View">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Utah Landscape Aerial">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Luxury Property Drone Shot">
+        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80" alt="Real Estate Aerial Photography">
       </div>
-      <div style="color:#aaa;font-size:0.95rem;">*Sample images. Replace with your own portfolio shots.</div>
     </section>
-    <section class="booking">
+
+    <section class="booking" id="booking">
       <h2>Book a Drone Shoot</h2>
       <form class="booking-form" name="booking" method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="booking">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
         <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone">
+        <input type="tel" id="phone" name="phone" placeholder="(801) 000-0000">
         <label for="details">Project Details</label>
-        <textarea id="details" name="details" rows="3" required></textarea>
+        <textarea id="details" name="details" rows="4" placeholder="Property address, type of shoot, preferred date..." required></textarea>
         <button type="submit">Request Booking</button>
       </form>
-      <div style="color:#aaa;font-size:0.95rem;margin-top:8px;">We'll get back to you within 24 hours.</div>
+      <p class="booking-note">We'll get back to you within 24 hours.</p>
     </section>
-    <section class="contact">
+
+    <section class="contact" id="contact">
       <h2>Contact</h2>
-      <div class="contact-info">Phone: <a href="tel:8019001713" style="color:gold;text-decoration:none;">801-900-1713</a></div>
-      <div class="contact-info">Email: <a href="mailto:801aerial@gmail.com" style="color:gold;text-decoration:none;">801aerial@gmail.com</a></div>
+      <div class="contact-info">Phone: <a href="tel:8019001713">801-900-1713</a></div>
+      <div class="contact-info">Email: <a href="mailto:801aerial@gmail.com">801aerial@gmail.com</a></div>
     </section>
   </main>
   <footer>
