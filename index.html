@@ -944,8 +944,11 @@
       </div>
 
       <div class="reveal reveal-delay-2">
-        <form class="booking-form" name="booking" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="booking">
+        <form class="booking-form" id="bookingForm">
+          <div id="formSuccess" style="display:none;background:rgba(201,168,76,0.1);border:1px solid var(--gold);border-radius:4px;padding:20px;text-align:center;margin-bottom:20px;">
+            <p style="color:var(--gold);font-weight:600;letter-spacing:1px;font-size:0.9rem;">REQUEST SENT</p>
+            <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;margin-top:6px;">We'll be in touch within 24 hours.</p>
+          </div>
           <div class="form-row">
             <div class="form-group">
               <label for="name">Name</label>
@@ -974,7 +977,7 @@
             <label for="details">Project Details</label>
             <textarea id="details" name="details" placeholder="Property address, type of property, preferred shoot date..." required></textarea>
           </div>
-          <button type="submit" class="btn-primary">Send Request</button>
+          <button type="submit" class="btn-primary" id="submitBtn">Send Request</button>
         </form>
       </div>
     </div>
@@ -1058,6 +1061,33 @@
     // Keyboard close
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') { closeLightbox(); closeVideo(); }
+    });
+
+    // Booking form → Formspree
+    document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const success = document.getElementById('formSuccess');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formspree.io/f/xeevbqer', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(this)
+        });
+        if (res.ok) {
+          success.style.display = 'block';
+          this.reset();
+          btn.textContent = 'Sent!';
+        } else {
+          btn.textContent = 'Error — try again';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Error — try again';
+        btn.disabled = false;
+      }
     });
   </script>
 </body>
