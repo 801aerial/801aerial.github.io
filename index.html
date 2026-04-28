@@ -656,6 +656,27 @@
     }
     .booking-detail a:hover { color: var(--gold); }
 
+    /* ── REELS ────────────────────────────────────── */
+    .reels-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+    }
+    .reel-card {
+      position: relative;
+      aspect-ratio: 9/16;
+      background: #000;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .reel-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .reel-card:hover video { transform: scale(1.04); }
+
     /* ── FOOTER ───────────────────────────────────── */
     footer {
       background: var(--black);
@@ -714,6 +735,7 @@
       .gallery-item:first-child { grid-column: span 2; }
       .showreel-header { grid-template-columns: 1fr; gap: 32px; }
       .video-grid { grid-template-columns: 1fr 1fr; }
+      .reels-grid { grid-template-columns: repeat(3, 1fr); }
       .booking-inner { grid-template-columns: 1fr; gap: 48px; }
       .form-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; padding: 36px 24px; }
@@ -750,7 +772,7 @@
   <!-- ── HERO ── -->
   <section class="hero">
     <video class="hero-video" autoplay muted loop playsinline preload="auto">
-      <source src="assets/videos/fountianhill.mp4" type="video/mp4">
+      <source src="assets/videos/horizontal/fountianhill.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -833,6 +855,14 @@
           <img src="assets/photos/photo6.jpg" alt="Drone property photo" loading="lazy">
           <div class="gallery-overlay"><span>View</span></div>
         </div>
+        <div class="gallery-item" onclick="openLightbox('assets/photos/photo7.png')">
+          <img src="assets/photos/photo7.png" alt="Utah luxury home aerial" loading="lazy">
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('assets/photos/photo8.png')">
+          <img src="assets/photos/photo8.png" alt="Real estate drone photo" loading="lazy">
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -842,72 +872,105 @@
     <div class="showreel-inner">
       <div class="showreel-header">
         <div class="reveal">
-          <p class="section-label">Video Work</p>
+          <p class="section-label">Aerial Video</p>
           <h2 class="section-title">See It in Motion</h2>
           <div class="divider"></div>
         </div>
-        <p class="section-sub reveal" style="margin:0">From sweeping flyovers to intimate property walkthroughs — every shoot tells a story.</p>
+        <p class="section-sub reveal" style="margin:0">Sweeping flyovers and cinematic property tours that stop buyers in their tracks.</p>
       </div>
 
       <div class="featured-video-wrap reveal">
-        <video controls preload="metadata" poster="">
-          <source src="assets/videos/edited.MP4" type="video/mp4">
+        <video controls preload="metadata">
+          <source src="assets/videos/horizontal/edited.MP4" type="video/mp4">
         </video>
       </div>
 
       <div class="video-grid">
-        <div class="video-card reveal reveal-delay-1" onclick="openVideo('assets/videos/springdrive.mp4')">
-          <video muted preload="none" src="assets/videos/springdrive.mp4"></video>
+        <div class="video-card reveal reveal-delay-1" onclick="openVideo('assets/videos/horizontal/paradehome.mp4')">
+          <video muted preload="none" src="assets/videos/horizontal/paradehome.mp4"></video>
           <div class="video-card-overlay">
-            <div class="play-btn">
-              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
-            <span class="video-card-label">Spring Drive</span>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <span class="video-card-label">Parade Home</span>
           </div>
         </div>
-        <div class="video-card reveal reveal-delay-2" onclick="openVideo('assets/videos/GroveHomeParade.mp4')">
-          <video muted preload="none" src="assets/videos/GroveHomeParade.mp4"></video>
+        <div class="video-card reveal reveal-delay-2" onclick="openVideo('assets/videos/horizontal/DJI_20260328120222_0010_D.MP4')">
+          <video muted preload="none" src="assets/videos/horizontal/DJI_20260328120222_0010_D.MP4"></video>
           <div class="video-card-overlay">
-            <div class="play-btn">
-              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
-            <span class="video-card-label">Grove Home</span>
-          </div>
-        </div>
-        <div class="video-card reveal reveal-delay-3" onclick="openVideo('assets/videos/Untitled.mp4')">
-          <video muted preload="none" src="assets/videos/Untitled.mp4"></video>
-          <div class="video-card-overlay">
-            <div class="play-btn">
-              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
-            <span class="video-card-label">Featured Property</span>
-          </div>
-        </div>
-        <div class="video-card reveal reveal-delay-1" onclick="openVideo('assets/videos/jeep copy.mp4')">
-          <video muted preload="none" src="assets/videos/jeep copy.mp4"></video>
-          <div class="video-card-overlay">
-            <div class="play-btn">
-              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
-            <span class="video-card-label">Jeep Trail</span>
-          </div>
-        </div>
-        <div class="video-card reveal reveal-delay-2" onclick="openVideo('assets/videos/DJI_20260410200315_0003_D.MP4')">
-          <video muted preload="none" src="assets/videos/DJI_20260410200315_0003_D.MP4"></video>
-          <div class="video-card-overlay">
-            <div class="play-btn">
-              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
-            <span class="video-card-label">Aerial Shoot</span>
-          </div>
-        </div>
-        <div class="video-card reveal reveal-delay-3" onclick="openVideo('assets/videos/DJI_20260420152117_0014_D.MP4')">
-          <video muted preload="none" src="assets/videos/DJI_20260420152117_0014_D.MP4"></video>
-          <div class="video-card-overlay">
-            <div class="play-btn">
-              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
             <span class="video-card-label">Property Flyover</span>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-3" onclick="openVideo('assets/videos/horizontal/DJI_20260403090533_0002_D.MP4')">
+          <video muted preload="none" src="assets/videos/horizontal/DJI_20260403090533_0002_D.MP4"></video>
+          <div class="video-card-overlay">
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <span class="video-card-label">Aerial Tour</span>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-1" onclick="openVideo('assets/videos/horizontal/DJI_20260403092547_0013_D.MP4')">
+          <video muted preload="none" src="assets/videos/horizontal/DJI_20260403092547_0013_D.MP4"></video>
+          <div class="video-card-overlay">
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <span class="video-card-label">Estate Overview</span>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-2" onclick="openVideo('assets/videos/horizontal/DJI_20260420124902_0008_D.MP4')">
+          <video muted preload="none" src="assets/videos/horizontal/DJI_20260420124902_0008_D.MP4"></video>
+          <div class="video-card-overlay">
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <span class="video-card-label">Mountain Property</span>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-3" onclick="openVideo('assets/videos/horizontal/DJI_20260420170414_0023_D.MP4')">
+          <video muted preload="none" src="assets/videos/horizontal/DJI_20260420170414_0023_D.MP4"></video>
+          <div class="video-card-overlay">
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <span class="video-card-label">Luxury Listing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vertical Reels -->
+      <div style="margin-top:64px">
+        <div class="reveal" style="margin-bottom:36px">
+          <p class="section-label">Reels</p>
+          <h2 class="section-title">Short Form</h2>
+        </div>
+        <div class="reels-grid reveal">
+          <div class="reel-card" onclick="openVideo('assets/videos/vertical/barnstyle1.mp4')">
+            <video muted preload="none" src="assets/videos/vertical/barnstyle1.mp4"></video>
+            <div class="video-card-overlay">
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+              <span class="video-card-label">Barn Style I</span>
+            </div>
+          </div>
+          <div class="reel-card" onclick="openVideo('assets/videos/vertical/barnstyle2.mp4')">
+            <video muted preload="none" src="assets/videos/vertical/barnstyle2.mp4"></video>
+            <div class="video-card-overlay">
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+              <span class="video-card-label">Barn Style II</span>
+            </div>
+          </div>
+          <div class="reel-card" onclick="openVideo('assets/videos/vertical/GroveHomeParade.mp4')">
+            <video muted preload="none" src="assets/videos/vertical/GroveHomeParade.mp4"></video>
+            <div class="video-card-overlay">
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+              <span class="video-card-label">Grove Home</span>
+            </div>
+          </div>
+          <div class="reel-card" onclick="openVideo('assets/videos/vertical/springdrive.mp4')">
+            <video muted preload="none" src="assets/videos/vertical/springdrive.mp4"></video>
+            <div class="video-card-overlay">
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+              <span class="video-card-label">Spring Drive</span>
+            </div>
+          </div>
+          <div class="reel-card" onclick="openVideo('assets/videos/vertical/dunes.MP4')">
+            <video muted preload="none" src="assets/videos/vertical/dunes.MP4"></video>
+            <div class="video-card-overlay">
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+              <span class="video-card-label">The Dunes</span>
+            </div>
           </div>
         </div>
       </div>
