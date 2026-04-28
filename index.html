@@ -824,29 +824,40 @@
 
     /* ── MOBILE ───────────────────────────────────── */
     @media (max-width: 900px) {
-      .nav { padding: 20px 24px; }
-      .nav.scrolled { padding: 14px 24px; }
+      .nav { padding: 16px 20px; }
+      .nav.scrolled { padding: 12px 20px; }
+      .nav-logo img { height: 52px; }
       .nav-links { display: none; flex-direction: column; position: fixed; top: 0; right: 0; bottom: 0; width: 260px; background: rgba(8,8,8,0.97); padding: 80px 32px 32px; gap: 24px; }
       .nav-links.open { display: flex; }
       .hamburger { display: flex; }
-      section { padding: 72px 24px; }
-      .services-inner { grid-template-columns: 1fr; gap: 48px; }
-      .services-grid { grid-template-columns: 1fr; }
+      section { padding: 64px 20px; }
+      .services-inner { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .gallery-item:first-child { grid-column: span 2; }
-      .showreel-header { grid-template-columns: 1fr; gap: 32px; }
+      .showreel-header { grid-template-columns: 1fr; gap: 24px; }
       .video-grid { grid-template-columns: 1fr 1fr; }
       .reels-grid { grid-template-columns: repeat(3, 1fr); }
-      .booking-inner { grid-template-columns: 1fr; gap: 48px; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { flex-direction: column; text-align: center; padding: 36px 24px; }
-      .footer-links { justify-content: center; }
+      .booking-inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; text-align: center; padding: 36px 20px; }
+      .footer-links { justify-content: center; flex-wrap: wrap; gap: 16px; }
     }
     @media (max-width: 540px) {
-      .hero-title { font-size: 2.4rem; }
+      .nav-logo img { height: 44px; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-eyebrow { font-size: 0.6rem; letter-spacing: 2px; }
+      .section-title { font-size: 1.8rem; }
       .gallery-grid { grid-template-columns: 1fr; }
       .gallery-item:first-child { grid-column: span 1; }
+      .gallery-item img { min-height: 200px; }
+      .services-grid { grid-template-columns: 1fr; }
       .video-grid { grid-template-columns: 1fr; }
+      .reels-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+      .booking-detail { gap: 12px; }
+      footer { padding: 28px 16px; }
+      .footer-links { gap: 12px; }
     }
   </style>
 </head>
