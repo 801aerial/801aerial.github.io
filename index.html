@@ -822,6 +822,61 @@
       50%       { opacity: 1;   transform: scaleY(1.15); }
     }
 
+    /* ── ABOUT ───────────────────────────────────── */
+    #about { background: #0d0d0d; }
+    .about-inner { max-width: 900px; margin: 0 auto; }
+    .about-body { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 56px; }
+    .about-text p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.9; margin-bottom: 20px; }
+    .about-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.3); border-radius: 4px; padding: 8px 16px; margin-top: 8px; }
+    .about-badge span { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .about-stat { background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 28px 24px; text-align: center; }
+    .about-stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); display: block; }
+    .about-stat-label { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 6px; display: block; }
+
+    /* ── PRICING ───────────────────────────────────── */
+    #pricing { background: #080808; }
+    .pricing-inner { max-width: 1100px; margin: 0 auto; }
+    .pricing-header { text-align: center; margin-bottom: 60px; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pricing-card { background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 40px 32px; position: relative; transition: border-color 0.3s; }
+    .pricing-card:hover { border-color: rgba(201,168,76,0.3); }
+    .pricing-card.featured { border-color: var(--gold); }
+    .pricing-card.featured::before { content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; white-space: nowrap; }
+    .pricing-card h3 { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .pricing-price { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+    .pricing-price sup { font-size: 1.2rem; vertical-align: top; margin-top: 6px; display: inline-block; }
+    .pricing-price sub { font-size: 0.85rem; color: rgba(255,255,255,0.3); font-family: 'Montserrat', sans-serif; }
+    .pricing-desc { font-size: 0.82rem; color: rgba(255,255,255,0.4); margin: 16px 0 28px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.06); line-height: 1.6; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+    .pricing-features li { font-size: 0.83rem; color: rgba(255,255,255,0.65); display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
+    .pricing-features li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+    .pricing-note { text-align: center; margin-top: 44px; font-size: 0.78rem; color: rgba(255,255,255,0.3); letter-spacing: 0.5px; line-height: 1.8; }
+
+    /* ── SERVICE AREAS ───────────────────────────────────── */
+    #areas { background: #0a0a0a; }
+    .areas-inner { max-width: 1100px; margin: 0 auto; }
+    .areas-header { text-align: center; margin-bottom: 56px; }
+    .areas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .area-card { background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 24px; }
+    .area-card h4 { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .area-card ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .area-card ul li { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+    .areas-note { text-align: center; margin-top: 36px; font-size: 0.8rem; color: rgba(255,255,255,0.35); line-height: 1.8; }
+
+    /* ── FAQ ───────────────────────────────────── */
+    #faq { background: #0d0d0d; }
+    .faq-inner { max-width: 780px; margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 56px; }
+    .faq-list { border-top: 1px solid rgba(255,255,255,0.08); }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .faq-question { width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 22px 0; font-family: 'Montserrat', sans-serif; font-size: 0.92rem; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: color 0.2s; }
+    .faq-question:hover { color: var(--gold); }
+    .faq-icon { color: var(--gold); font-size: 1.4rem; flex-shrink: 0; transition: transform 0.3s; line-height: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-answer p { font-size: 0.86rem; color: rgba(255,255,255,0.5); line-height: 1.9; padding-bottom: 22px; }
+
     /* ── MOBILE ───────────────────────────────────── */
     @media (max-width: 900px) {
       .nav { padding: 16px 20px; }
@@ -856,6 +911,9 @@
       .reels-grid { grid-template-columns: repeat(2, 1fr); }
       .form-row { grid-template-columns: 1fr; }
       .booking-detail { gap: 12px; }
+      .about-body { grid-template-columns: 1fr; gap: 40px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .areas-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 28px 16px; }
       .footer-links { gap: 12px; }
     }
@@ -877,8 +935,9 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#showreel">Work</a></li>
-      <li><a href="https://www.instagram.com/801aerial/" target="_blank" rel="noopener">Instagram</a></li>
       <li><a href="#booking" class="nav-cta">Book a Shoot</a></li>
     </ul>
     <div class="hamburger" id="hamburger" aria-label="Menu">
@@ -920,22 +979,22 @@
         <div class="service-card reveal reveal-delay-1">
           <div class="service-icon">📷</div>
           <h3>Aerial Photography</h3>
-          <p>High-resolution stills that capture every angle of your listing in stunning detail.</p>
+          <p>High-resolution stills that capture every angle of your listing in stunning detail. Edited and delivered ready for MLS, marketing materials, and social media.</p>
         </div>
         <div class="service-card reveal reveal-delay-2">
           <div class="service-icon">🎬</div>
           <h3>Drone Video</h3>
-          <p>Cinematic flyovers and tours that captivate buyers before they set foot inside.</p>
+          <p>Cinematic 4K flyovers and property tours that captivate buyers before they set foot inside. Ideal for luxury listings, new builds, and land parcels.</p>
         </div>
         <div class="service-card reveal reveal-delay-3">
           <div class="service-icon">✂️</div>
           <h3>Post Production</h3>
-          <p>Professional color grading and editing to ensure every frame is picture perfect.</p>
+          <p>Professional color grading, editing, and export for every project. Photos and videos delivered in web-ready and print-ready formats with fast turnaround.</p>
         </div>
         <div class="service-card reveal reveal-delay-4">
           <div class="service-icon">🏔️</div>
           <h3>Utah Specialists</h3>
-          <p>We know Utah's landscapes — mountains, valleys, and everything in between.</p>
+          <p>FAA Part 107 licensed and based in Utah County. We serve all of Utah — Salt Lake, Utah, Davis, and Weber Counties — with a travel fee for distant locations.</p>
         </div>
       </div>
     </div>
@@ -973,6 +1032,165 @@
           <div class="gallery-overlay"><span>View</span></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="reveal">
+        <p class="section-label">About</p>
+        <h2 class="section-title">Meet the Pilot</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="about-body">
+        <div class="about-text reveal">
+          <p>801 Aerial is owned and operated by Owen Young, a Pleasant Grove-based FAA Part 107 licensed drone pilot with a passion for capturing properties at their absolute best.</p>
+          <p>Owen got his start in real estate photography and quickly found that aerial work was where creativity and craft came together. What began as a fascination with the perspective a drone unlocks has grown into a focused pursuit — delivering cinematic, high-quality visuals that help properties stand out and sell faster.</p>
+          <p>Every shoot is handled personally by Owen, so you're always working directly with the pilot and editor — no middlemen, no outsourcing. Just clean, professional results every time.</p>
+          <div class="about-badge">
+            <span>✓&nbsp; FAA Part 107 Certified Drone Pilot</span>
+          </div>
+        </div>
+        <div class="about-stats reveal reveal-delay-2">
+          <div class="about-stat">
+            <span class="about-stat-num">4K</span>
+            <span class="about-stat-label">Ultra HD Video</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">48MP</span>
+            <span class="about-stat-label">Photo Resolution</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">24hr</span>
+            <span class="about-stat-label">Avg. Turnaround</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">100%</span>
+            <span class="about-stat-label">Licensed &amp; Legal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING ── -->
+  <section id="pricing">
+    <div class="pricing-inner">
+      <div class="pricing-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2 class="section-title">Clear, Simple Packages</h2>
+        <div class="divider" style="margin:24px auto"></div>
+        <p class="section-sub" style="max-width:520px;margin:0 auto">Every property is different — these are starting points. Message us for a custom quote.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card reveal reveal-delay-1">
+          <h3>Essential</h3>
+          <div class="pricing-price"><sup>$</sup>250</div>
+          <p class="pricing-desc">Aerial photography package — perfect for standard listings that need clean, professional stills fast.</p>
+          <ul class="pricing-features">
+            <li>15–20 edited aerial photos</li>
+            <li>High-resolution delivery</li>
+            <li>MLS &amp; web-ready exports</li>
+            <li>24–48 hr turnaround</li>
+          </ul>
+          <a href="#booking" class="cta-btn" style="display:block;text-align:center">Book Now</a>
+        </div>
+        <div class="pricing-card featured reveal reveal-delay-2">
+          <h3>Signature</h3>
+          <div class="pricing-price"><sup>$</sup>450<sub>+</sub></div>
+          <p class="pricing-desc">Photos plus a cinematic video tour — the full package for luxury listings and new builds.</p>
+          <ul class="pricing-features">
+            <li>Everything in Essential</li>
+            <li>Cinematic 4K video edit</li>
+            <li>Color graded &amp; music licensed</li>
+            <li>Social media format included</li>
+            <li>Fast turnaround</li>
+          </ul>
+          <a href="#booking" class="cta-btn" style="display:block;text-align:center">Book Now</a>
+        </div>
+        <div class="pricing-card reveal reveal-delay-3">
+          <h3>Full Production</h3>
+          <div class="pricing-price" style="font-size:2rem;padding-top:6px">Custom</div>
+          <p class="pricing-desc">Full aerial content creation for builders, developers, and real estate teams with multiple properties.</p>
+          <ul class="pricing-features">
+            <li>Photos, video &amp; reels</li>
+            <li>Multiple properties or sites</li>
+            <li>Builder &amp; developer packages</li>
+            <li>Priority scheduling</li>
+            <li>Custom deliverables</li>
+          </ul>
+          <a href="#booking" class="cta-btn" style="display:block;text-align:center">Get a Quote</a>
+        </div>
+      </div>
+      <p class="pricing-note reveal">All packages include edited, final files — no raw footage. Travel fee applies for locations outside Utah County.<br>Pricing may vary based on property size, location, and project scope.</p>
+    </div>
+  </section>
+
+  <!-- ── SERVICE AREAS ── -->
+  <section id="areas">
+    <div class="areas-inner">
+      <div class="areas-header reveal">
+        <p class="section-label">Coverage</p>
+        <h2 class="section-title">We Fly All of Utah</h2>
+        <div class="divider" style="margin:24px auto"></div>
+        <p class="section-sub" style="max-width:540px;margin:0 auto">Based in Pleasant Grove — we serve the entire Wasatch Front and beyond. A travel fee applies for locations outside Utah County.</p>
+      </div>
+      <div class="areas-grid reveal">
+        <div class="area-card">
+          <h4>Utah County</h4>
+          <ul>
+            <li>Pleasant Grove</li>
+            <li>Provo &amp; Orem</li>
+            <li>Lehi &amp; Alpine</li>
+            <li>American Fork</li>
+            <li>Saratoga Springs</li>
+            <li>Eagle Mountain</li>
+            <li>Spanish Fork</li>
+            <li>Payson</li>
+          </ul>
+        </div>
+        <div class="area-card">
+          <h4>Salt Lake County</h4>
+          <ul>
+            <li>Salt Lake City</li>
+            <li>Draper &amp; Sandy</li>
+            <li>South Jordan</li>
+            <li>West Jordan</li>
+            <li>Murray</li>
+            <li>Holladay</li>
+            <li>Cottonwood Heights</li>
+            <li>Midvale</li>
+          </ul>
+        </div>
+        <div class="area-card">
+          <h4>Davis County</h4>
+          <ul>
+            <li>Farmington</li>
+            <li>Bountiful</li>
+            <li>Layton</li>
+            <li>Kaysville</li>
+            <li>Centerville</li>
+            <li>North Salt Lake</li>
+            <li>Syracuse</li>
+            <li>Clearfield</li>
+          </ul>
+        </div>
+        <div class="area-card">
+          <h4>Weber &amp; Beyond</h4>
+          <ul>
+            <li>Ogden</li>
+            <li>North Ogden</li>
+            <li>Washington Terrace</li>
+            <li>Roy</li>
+            <li>Riverdale</li>
+            <li>Huntsville</li>
+            <li>Park City</li>
+            <li>+ All of Utah</li>
+          </ul>
+        </div>
+      </div>
+      <p class="areas-note reveal">Don't see your city? We'll go there. Message us for a custom travel quote.</p>
     </div>
   </section>
 
@@ -1144,6 +1362,82 @@
     </div>
   </section>
 
+  <!-- ── FAQ ── -->
+  <section id="faq">
+    <div class="faq-inner">
+      <div class="faq-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title">Common Questions</h2>
+        <div class="divider" style="margin:24px auto"></div>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How much does drone photography cost in Utah?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Our Essential aerial photography package starts at $250, which includes 15–20 edited high-resolution stills. Photo + video packages start at $450. Pricing varies based on property size, location, and scope — contact us for a custom quote.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do I need a licensed drone pilot for real estate in Utah?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes — the FAA requires a Part 107 Remote Pilot Certificate for any commercial drone operation, including real estate photography. Owen is fully FAA Part 107 certified, so every shoot is legal and compliant.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How far will you travel for a shoot?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We'll go anywhere in Utah. We're based in Pleasant Grove, so shoots within Utah County have no travel fee. For locations outside Utah County, a small travel fee applies — we'll always let you know upfront before booking.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How long does a typical shoot take?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Most residential shoots take 30–60 minutes on site. Larger properties, new builds, or full video packages may take longer. We'll give you an accurate time estimate when you book.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How quickly will I receive my photos and videos?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Edited files are typically delivered within 24–48 hours of the shoot. Rush delivery is available — just mention it when you book.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What happens if the weather is bad?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Safety and quality come first — we don't fly in high winds, rain, or poor visibility. If weather forces a reschedule, we'll work with you to find the next available date at no extra charge.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What equipment do you use?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We shoot with the DJI Mavic 4 Pro, delivering smooth, stabilized 4K video and 48MP aerial stills. Every file is professionally edited before delivery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── FOOTER ── -->
   <footer>
     <img src="assets/logo/semilogo.png" alt="801 Aerial">
@@ -1195,6 +1489,13 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // Lightbox
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
     function openLightbox(src) {
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightbox').classList.add('open');
