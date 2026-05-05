@@ -852,6 +852,10 @@
     .pricing-features li { font-size: 0.83rem; color: rgba(255,255,255,0.65); display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
     .pricing-features li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
     .pricing-note { text-align: center; margin-top: 44px; font-size: 0.78rem; color: rgba(255,255,255,0.3); letter-spacing: 0.5px; line-height: 1.8; }
+    .pricing-btn { display: block; width: 100%; text-align: center; background: var(--gold); color: #000; text-decoration: none; font-size: 0.74rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 14px 24px; border-radius: 2px; transition: background 0.2s, transform 0.2s; font-family: 'Montserrat', sans-serif; box-sizing: border-box; }
+    .pricing-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .pricing-card:not(.featured) .pricing-btn { background: transparent; color: var(--gold); border: 1px solid rgba(201,168,76,0.5); }
+    .pricing-card:not(.featured) .pricing-btn:hover { background: rgba(201,168,76,0.08); border-color: var(--gold); transform: translateY(-2px); }
 
     /* ── SERVICE AREAS ───────────────────────────────────── */
     #areas { background: #0a0a0a; }
@@ -875,6 +879,7 @@
     .faq-icon { color: var(--gold); font-size: 1.4rem; flex-shrink: 0; transition: transform 0.3s; line-height: 1; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-item.open .faq-answer { max-height: 400px; }
     .faq-answer p { font-size: 0.86rem; color: rgba(255,255,255,0.5); line-height: 1.9; padding-bottom: 22px; }
 
     /* ── MOBILE ───────────────────────────────────── */
@@ -1094,7 +1099,7 @@
             <li>MLS &amp; web-ready exports</li>
             <li>24–48 hr turnaround</li>
           </ul>
-          <a href="#booking" class="cta-btn" style="display:block;text-align:center">Book Now</a>
+          <a href="#booking" class="pricing-btn">Book Now</a>
         </div>
         <div class="pricing-card featured reveal reveal-delay-2">
           <h3>Signature</h3>
@@ -1107,7 +1112,7 @@
             <li>Social media format included</li>
             <li>Fast turnaround</li>
           </ul>
-          <a href="#booking" class="cta-btn" style="display:block;text-align:center">Book Now</a>
+          <a href="#booking" class="pricing-btn">Book Now</a>
         </div>
         <div class="pricing-card reveal reveal-delay-3">
           <h3>Full Production</h3>
@@ -1120,7 +1125,7 @@
             <li>Priority scheduling</li>
             <li>Custom deliverables</li>
           </ul>
-          <a href="#booking" class="cta-btn" style="display:block;text-align:center">Get a Quote</a>
+          <a href="#booking" class="pricing-btn">Get a Quote</a>
         </div>
       </div>
       <p class="pricing-note reveal">All packages include edited, final files — no raw footage. Travel fee applies for locations outside Utah County.<br>Pricing may vary based on property size, location, and project scope.</p>
