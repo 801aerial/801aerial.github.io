@@ -95,7 +95,7 @@
     .video-header { margin-bottom: 48px; }
     .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .video-card { border-radius: 4px; overflow: hidden; position: relative; cursor: pointer; }
-    .video-card video { width: 100%; display: block; height: 280px; object-fit: cover; }
+    .video-card video { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
     .video-play-overlay { position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.1)); transition: background 0.2s; }
     .video-card:hover .video-play-overlay { background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.05)); }
     .video-card-meta { display: flex; align-items: center; gap: 12px; }
@@ -104,7 +104,7 @@
     .video-card-label { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.75); }
     .vertical-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
     .vertical-item { border-radius: 4px; overflow: hidden; position: relative; cursor: pointer; }
-    .vertical-item video { width: 100%; display: block; height: 340px; object-fit: cover; }
+    .vertical-item video { width: 100%; display: block; aspect-ratio: 9/16; object-fit: cover; }
     .vertical-item .video-play-overlay { padding: 16px; align-items: center; justify-content: center; }
 
     /* ── CLIENTS ── */
