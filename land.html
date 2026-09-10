@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FRVR63Y1RW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FRVR63Y1RW');
+  </script>
+  <meta name="description" content="Drone photography and video for land and lot listings across Utah. Aerial property line overlays, acreage overviews, and cinematic video — serving Salt Lake City, Utah County, and all of Utah.">
+  <meta name="keywords" content="drone photography land listings Utah, aerial photography lots Utah, land listing drone photos, property line drone overlay Utah, aerial land photography Salt Lake City, drone video vacant lot Utah, land parcel aerial photography">
+  <meta name="author" content="801 Aerial">
+  <meta property="og:title" content="801 Aerial | Land & Lot Drone Photography — Utah">
+  <meta property="og:description" content="Professional aerial drone photography for land and lot listings across Utah. Property line overlays, acreage overviews, and cinematic video tours.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://801aerial.com/land">
+  <meta property="og:image" content="https://801aerial.com/assets/photos/land/pleasant-grove-land-1.jpg">
+  <link rel="canonical" href="https://801aerial.com/land">
+  <title>801 Aerial | Land & Lot Drone Photography — Utah</title>
+  <link rel="icon" type="image/png" href="assets/logo/semilogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #dbbe73;
+      --black: #080808;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; transition: background 0.4s, padding 0.4s; }
+    .nav.scrolled { background: rgba(8,8,8,0.95); backdrop-filter: blur(12px); padding: 14px 48px; }
+    .nav-logo img { height: 60px; width: auto; display: block; }
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 36px; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { background: var(--gold); color: #000 !important; padding: 10px 22px; border-radius: 2px; font-weight: 700; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: 0.3s; }
+
+    /* ── HERO ── */
+    .hero { position: relative; height: 85vh; min-height: 540px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,8,8,0.5) 0%, rgba(8,8,8,0.3) 50%, rgba(8,8,8,0.7) 100%); }
+    .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 24px; }
+    .hero-eyebrow { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 600; line-height: 1.15; margin-bottom: 28px; }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: 0.85rem; color: rgba(255,255,255,0.65); letter-spacing: 1px; margin-bottom: 40px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+    .btn-primary { background: var(--gold); color: var(--black); text-decoration: none; font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 16px 36px; border-radius: 2px; transition: background 0.2s, transform 0.2s; border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; display: inline-block; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: #fff; text-decoration: none; font-size: 0.78rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 16px 36px; border-radius: 2px; border: 1px solid rgba(255,255,255,0.4); transition: border-color 0.2s, color 0.2s, transform 0.2s; display: inline-block; }
+    .btn-outline:hover { border-color: #fff; transform: translateY(-2px); }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 48px; }
+    .section-label { font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 600; line-height: 1.2; margin-bottom: 16px; }
+    .section-sub { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.9; max-width: 640px; }
+    .divider { width: 48px; height: 2px; background: var(--gold); margin: 24px 0; }
+    .inner { max-width: 1200px; margin: 0 auto; }
+
+    /* ── VALUE PROPS ── */
+    #value { background: #0d0d0d; }
+    .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .value-card { background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 36px 28px; }
+    .value-icon { font-size: 1.8rem; margin-bottom: 16px; }
+    .value-card h3 { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .value-card p { font-size: 0.84rem; color: rgba(255,255,255,0.55); line-height: 1.8; }
+
+    /* ── LISTINGS ── */
+    #listings { background: #080808; }
+    .listing-block { margin-bottom: 80px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 80px; }
+    .listing-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .listing-header { margin-bottom: 36px; }
+    .listing-location { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .listing-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; margin-bottom: 10px; }
+    .listing-desc { font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.8; max-width: 600px; }
+    .listing-media { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; margin-top: 28px; }
+    .listing-media.has-video { grid-template-columns: 1.5fr 1fr 1fr; }
+    .media-main { grid-row: span 2; position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; }
+    .media-thumb { position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; }
+    .media-main img, .media-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; min-height: 180px; }
+    .media-main { min-height: 360px; }
+    .media-main:hover img, .media-thumb:hover img { transform: scale(1.04); }
+    .proplines-badge { position: absolute; bottom: 10px; left: 10px; background: rgba(201,168,76,0.9); color: #000; font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; }
+    .listing-video { margin-top: 12px; border-radius: 4px; overflow: hidden; position: relative; cursor: pointer; }
+    .listing-video video { width: 100%; display: block; max-height: 220px; object-fit: cover; border-radius: 4px; }
+    .video-play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); transition: background 0.2s; }
+    .video-play-overlay:hover { background: rgba(0,0,0,0.1); }
+    .play-btn { width: 52px; height: 52px; border-radius: 50%; background: rgba(201,168,76,0.9); display: flex; align-items: center; justify-content: center; }
+    .play-btn svg { width: 18px; height: 18px; fill: #000; margin-left: 3px; }
+
+    /* ── PROPLINES FEATURE ── */
+    #proplines { background: #0a0a0a; }
+    .proplines-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .proplines-img { border-radius: 4px; overflow: hidden; }
+    .proplines-img img { width: 100%; display: block; }
+    .proplines-text .section-sub { margin-bottom: 28px; }
+    .proplines-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+    .proplines-list li { font-size: 0.84rem; color: rgba(255,255,255,0.65); display: flex; gap: 12px; align-items: flex-start; line-height: 1.6; }
+    .proplines-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+    /* ── CTA ── */
+    #cta { background: #0d0d0d; text-align: center; }
+    #cta .section-title { margin-bottom: 16px; }
+    #cta .section-sub { margin: 0 auto 40px; text-align: center; }
+    #cta .divider { margin: 24px auto; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer { background: #050505; border-top: 1px solid rgba(255,255,255,0.06); padding: 44px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    footer img { height: 44px; opacity: 0.7; }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; }
+    .lightbox.open { display: flex; }
+    .lightbox-img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 2px; }
+    .lightbox-close { position: absolute; top: 24px; right: 32px; background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; opacity: 0.7; }
+    .lightbox-close:hover { opacity: 1; }
+
+    /* ── VIDEO MODAL ── */
+    .video-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.97); z-index: 1000; align-items: center; justify-content: center; }
+    .video-modal.open { display: flex; }
+    .video-modal video { max-width: 90vw; max-height: 85vh; border-radius: 4px; }
+    .video-modal-close { position: absolute; top: 24px; right: 32px; background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; opacity: 0.7; }
+    .video-modal-close:hover { opacity: 1; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .nav { padding: 16px 20px; }
+      .nav.scrolled { padding: 12px 20px; }
+      .nav-logo img { height: 52px; }
+      .nav-links { display: none; flex-direction: column; position: fixed; top: 0; right: 0; bottom: 0; width: 260px; background: rgba(8,8,8,0.97); padding: 80px 32px 32px; gap: 24px; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      section { padding: 64px 20px; }
+      .value-grid { grid-template-columns: 1fr; }
+      .listing-media { grid-template-columns: 1fr 1fr; }
+      .media-main { grid-row: span 1; grid-column: span 2; min-height: 240px; }
+      .proplines-inner { grid-template-columns: 1fr; gap: 40px; }
+      footer { flex-direction: column; text-align: center; padding: 36px 20px; }
+      .footer-links { justify-content: center; flex-wrap: wrap; gap: 16px; }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 540px) {
+      .hero-title { font-size: 2.2rem; }
+      .listing-media { grid-template-columns: 1fr; }
+      .media-main { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="nav" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo/semilogo.png" alt="801 Aerial">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="real-estate.html">Real Estate</a></li>
+      <li><a href="land.html">Land & Lots</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#booking" class="nav-cta">Book a Shoot</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/photos/land/pleasant-grove-land-1.jpg">
+      <source src="assets/videos/land/slc-duo.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Land &nbsp;·&nbsp; Lots &nbsp;·&nbsp; Acreage &nbsp;·&nbsp; Utah</p>
+      <h1 class="hero-title">Show Every<br><em>Acre</em> From Above</h1>
+      <p class="hero-sub">Aerial drone photography and video built specifically for land and lot listings. Property line overlays, acreage overviews, and cinematic video that helps buyers understand exactly what they're purchasing.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="#listings" class="btn-primary">View Work</a>
+        <a href="index.html#booking" class="btn-outline">Book a Shoot</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALUE PROPS ── -->
+  <section id="value">
+    <div class="inner">
+      <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 56px">
+        <p class="section-label">Why Aerial for Land</p>
+        <h2 class="section-title">What Ground Photos<br>Can't Show</h2>
+        <div class="divider" style="margin:24px auto"></div>
+        <p class="section-sub" style="margin:0 auto">Land listings are hard to market from the ground. Aerial photography solves that by giving buyers the one view that actually communicates size, shape, and surroundings.</p>
+      </div>
+      <div class="value-grid">
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">📐</div>
+          <h3>Property Line Overlays</h3>
+          <p>We overlay exact property boundaries directly onto aerial photos so buyers can instantly see the lot shape, corners, and boundaries — no guessing required.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">🏔️</div>
+          <h3>Surroundings & Views</h3>
+          <p>Aerial shots show proximity to mountains, roads, utilities, neighborhoods, and natural features that make or break a land purchase decision.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon">📏</div>
+          <h3>True Scale & Acreage</h3>
+          <p>Ground photos can't communicate size. A drone shot instantly conveys how large a parcel is, how it lays, and how it relates to surrounding properties.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LISTINGS ── -->
+  <section id="listings">
+    <div class="inner">
+      <div class="reveal" style="margin-bottom:64px">
+        <p class="section-label">Portfolio</p>
+        <h2 class="section-title">Land & Lot Work</h2>
+        <div class="divider"></div>
+        <p class="section-sub">A selection of land and lot shoots across Utah — from single residential lots to multi-parcel projects.</p>
+      </div>
+
+      <!-- Pleasant Grove Land -->
+      <div class="listing-block">
+        <div class="listing-header reveal">
+          <p class="listing-location">Pleasant Grove, Utah County</p>
+          <h3 class="listing-title">680 S — Residential Land Parcel</h3>
+          <p class="listing-desc">Aerial photography and property line overlay for a residential land listing in Pleasant Grove. Photos delivered MLS-ready within 24 hours.</p>
+        </div>
+        <div class="listing-media reveal">
+          <div class="media-main" onclick="openLightbox('assets/photos/land/pleasant-grove-land-1.jpg')">
+            <img src="assets/photos/land/pleasant-grove-land-1.jpg" alt="Aerial drone photo of land listing in Pleasant Grove Utah" loading="lazy">
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/pleasant-grove-land-2.jpg')">
+            <img src="assets/photos/land/pleasant-grove-land-2.jpg" alt="Aerial view of Pleasant Grove Utah land parcel" loading="lazy">
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/pleasant-grove-land-proplines.jpg')">
+            <img src="assets/photos/land/pleasant-grove-land-proplines.jpg" alt="Property line overlay aerial photo Pleasant Grove Utah land listing" loading="lazy">
+            <span class="proplines-badge">Property Lines</span>
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/pleasant-grove-land-3.jpg')">
+            <img src="assets/photos/land/pleasant-grove-land-3.jpg" alt="Drone aerial photo land parcel Pleasant Grove Utah" loading="lazy">
+          </div>
+        </div>
+        <div class="listing-video reveal" onclick="openVideo('assets/videos/land/pleasant-grove-land.mp4')">
+          <video muted preload="none" src="assets/videos/land/pleasant-grove-land.mp4"></video>
+          <div class="video-play-overlay">
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Springville Lot -->
+      <div class="listing-block">
+        <div class="listing-header reveal">
+          <p class="listing-location">Springville, Utah County</p>
+          <h3 class="listing-title">114 Oakwood — Residential Lot</h3>
+          <p class="listing-desc">Full aerial photo and video package for a residential lot listing in Springville. Includes property line overlay photos for MLS use.</p>
+        </div>
+        <div class="listing-media reveal">
+          <div class="media-main" onclick="openLightbox('assets/photos/land/springville-lot-1.jpg')">
+            <img src="assets/photos/land/springville-lot-1.jpg" alt="Aerial drone photo of lot listing in Springville Utah" loading="lazy">
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/springville-lot-2.jpg')">
+            <img src="assets/photos/land/springville-lot-2.jpg" alt="Aerial view Springville Utah residential lot" loading="lazy">
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/springville-lot-proplines.jpg')">
+            <img src="assets/photos/land/springville-lot-proplines.jpg" alt="Property line overlay aerial photo Springville Utah lot listing" loading="lazy">
+            <span class="proplines-badge">Property Lines</span>
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/springville-lot-3.jpg')">
+            <img src="assets/photos/land/springville-lot-3.jpg" alt="Drone aerial photo lot Springville Utah" loading="lazy">
+          </div>
+        </div>
+        <div class="listing-video reveal" onclick="openVideo('assets/videos/land/springville-lot.mp4')">
+          <video muted preload="none" src="assets/videos/land/springville-lot.mp4"></video>
+          <div class="video-play-overlay">
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLC Duo -->
+      <div class="listing-block">
+        <div class="listing-header reveal">
+          <p class="listing-location">Salt Lake City, Salt Lake County</p>
+          <h3 class="listing-title">SLC Center — Two Adjacent Lots</h3>
+          <p class="listing-desc">Aerial photography for two adjacent lots in Salt Lake City, each with individual property line overlays. Full video tour showing both parcels and surrounding context.</p>
+        </div>
+        <div class="listing-media reveal">
+          <div class="media-main" onclick="openLightbox('assets/photos/land/slc-145e-1.jpg')">
+            <img src="assets/photos/land/slc-145e-1.jpg" alt="Aerial drone photo of Salt Lake City lots" loading="lazy">
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/slc-145e-proplines.jpg')">
+            <img src="assets/photos/land/slc-145e-proplines.jpg" alt="Property line overlay aerial SLC lot 145E" loading="lazy">
+            <span class="proplines-badge">Lot 145E Lines</span>
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/slc-155e-1.jpg')">
+            <img src="assets/photos/land/slc-155e-1.jpg" alt="Aerial drone photo SLC lot 155E" loading="lazy">
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/slc-155e-proplines.jpg')">
+            <img src="assets/photos/land/slc-155e-proplines.jpg" alt="Property line overlay aerial SLC lot 155E" loading="lazy">
+            <span class="proplines-badge">Lot 155E Lines</span>
+          </div>
+        </div>
+        <div class="listing-video reveal" onclick="openVideo('assets/videos/land/slc-duo.mp4')">
+          <video muted preload="none" src="assets/videos/land/slc-duo.mp4"></video>
+          <div class="video-play-overlay">
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sandy Lot -->
+      <div class="listing-block">
+        <div class="listing-header reveal">
+          <p class="listing-location">Sandy, Salt Lake County</p>
+          <h3 class="listing-title">Sandy — Residential Lot with Demo Home</h3>
+          <p class="listing-desc">Aerial photography for a lot listing in Sandy featuring a home slated for demolition. Property line overlays and video provided for the land listing.</p>
+        </div>
+        <div class="listing-media reveal">
+          <div class="media-main" onclick="openLightbox('assets/photos/land/sandy-lot-1.jpg')">
+            <img src="assets/photos/land/sandy-lot-1.jpg" alt="Aerial drone photo of lot listing in Sandy Utah" loading="lazy">
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/sandy-lot-2.jpg')">
+            <img src="assets/photos/land/sandy-lot-2.jpg" alt="Aerial view Sandy Utah residential lot" loading="lazy">
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/sandy-lot-proplines.jpg')">
+            <img src="assets/photos/land/sandy-lot-proplines.jpg" alt="Property line overlay aerial photo Sandy Utah lot" loading="lazy">
+            <span class="proplines-badge">Property Lines</span>
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/sandy-lot-3.jpg')">
+            <img src="assets/photos/land/sandy-lot-3.jpg" alt="Drone aerial Sandy Utah lot" loading="lazy">
+          </div>
+        </div>
+        <div class="listing-video reveal" onclick="openVideo('assets/videos/land/sandy-lot.mp4')">
+          <video muted preload="none" src="assets/videos/land/sandy-lot.mp4"></video>
+          <div class="video-play-overlay">
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Redwood Lot -->
+      <div class="listing-block">
+        <div class="listing-header reveal">
+          <p class="listing-location">Salt Lake County</p>
+          <h3 class="listing-title">Redwood — Residential Lot with Demo Home</h3>
+          <p class="listing-desc">Aerial photos and video for a Redwood Road area lot listing. Includes property line overlays and cinematic video overview of the parcel.</p>
+        </div>
+        <div class="listing-media reveal">
+          <div class="media-main" onclick="openLightbox('assets/photos/land/redwood-lot-1.jpg')">
+            <img src="assets/photos/land/redwood-lot-1.jpg" alt="Aerial drone photo lot listing Redwood Road Salt Lake County Utah" loading="lazy">
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/redwood-lot-2.jpg')">
+            <img src="assets/photos/land/redwood-lot-2.jpg" alt="Aerial view Redwood Road Utah lot" loading="lazy">
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/redwood-lot-proplines.jpg')">
+            <img src="assets/photos/land/redwood-lot-proplines.jpg" alt="Property line overlay aerial Redwood Road Utah lot" loading="lazy">
+            <span class="proplines-badge">Property Lines</span>
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/redwood-lot-3.jpg')">
+            <img src="assets/photos/land/redwood-lot-3.jpg" alt="Drone aerial photo lot Redwood Road Utah" loading="lazy">
+          </div>
+        </div>
+        <div class="listing-video reveal" onclick="openVideo('assets/videos/land/redwood-lot.mp4')">
+          <video muted preload="none" src="assets/videos/land/redwood-lot.mp4"></video>
+          <div class="video-play-overlay">
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dave Realtor Multi-Lot Project -->
+      <div class="listing-block">
+        <div class="listing-header reveal">
+          <p class="listing-location">Salt Lake City & Surrounding Areas</p>
+          <h3 class="listing-title">Multi-Lot Project — 8 Listings</h3>
+          <p class="listing-desc">Full aerial content for a real estate agent's portfolio of 8 lot listings across Salt Lake City and surrounding areas. Each lot received individual aerial photos with property line overlays and a combined video tour.</p>
+        </div>
+        <div class="listing-media reveal" style="grid-template-columns:1fr 1fr 1fr 1fr">
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/dave-1040spineview-1.jpg')">
+            <img src="assets/photos/land/dave-1040spineview-1.jpg" alt="Aerial drone photo 1040 Woodlands lot Salt Lake City Utah" loading="lazy">
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/dave-1040spineview-proplines.png')">
+            <img src="assets/photos/land/dave-1040spineview-proplines.png" alt="Property line overlay 1040 Woodlands lot" loading="lazy">
+            <span class="proplines-badge">Property Lines</span>
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/dave-761eridgedr-1.jpg')">
+            <img src="assets/photos/land/dave-761eridgedr-1.jpg" alt="Aerial drone photo 761 Ridge Drive lot Salt Lake City" loading="lazy">
+          </div>
+          <div class="media-thumb" onclick="openLightbox('assets/photos/land/dave-761eridgedr-proplines.png')">
+            <img src="assets/photos/land/dave-761eridgedr-proplines.png" alt="Property line overlay 761 Ridge Drive lot" loading="lazy">
+            <span class="proplines-badge">Property Lines</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px" class="reveal">
+          <div class="listing-video" onclick="openVideo('assets/videos/land/dave-realtor-1.mp4')">
+            <video muted preload="none" src="assets/videos/land/dave-realtor-1.mp4"></video>
+            <div class="video-play-overlay">
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            </div>
+          </div>
+          <div class="listing-video" onclick="openVideo('assets/videos/land/dave-realtor-2.mp4')">
+            <video muted preload="none" src="assets/videos/land/dave-realtor-2.mp4"></video>
+            <div class="video-play-overlay">
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── PROPERTY LINES FEATURE ── -->
+  <section id="proplines">
+    <div class="proplines-inner">
+      <div class="proplines-img reveal">
+        <img src="assets/photos/land/slc-145e-proplines.jpg" alt="Property line overlay aerial drone photo Salt Lake City Utah lot listing">
+      </div>
+      <div class="proplines-text reveal reveal-delay-2">
+        <p class="section-label">Key Feature</p>
+        <h2 class="section-title">Property Line<br>Overlays</h2>
+        <div class="divider"></div>
+        <p class="section-sub">One of the most valuable things we offer for land listings — aerial photos with exact property boundaries overlaid directly on the image. Buyers instantly understand the shape, size, and corners of the lot without needing to reference a survey separately.</p>
+        <ul class="proplines-list">
+          <li>Exact lot boundary lines drawn from survey or plat data</li>
+          <li>Delivered in MLS-ready and high-resolution formats</li>
+          <li>Individual overlays per lot for multi-parcel projects</li>
+          <li>Included in all land listing packages</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section id="cta">
+    <div class="inner">
+      <div class="reveal">
+        <p class="section-label">Get Started</p>
+        <h2 class="section-title">Have a Land Listing?</h2>
+        <div class="divider"></div>
+        <p class="section-sub">Packages start at $250. We serve all of Utah — Salt Lake County, Utah County, Davis County, Weber County, and beyond. FAA Part 107 licensed, files delivered within 24–48 hours.</p>
+      </div>
+      <div class="cta-btns reveal reveal-delay-1" style="margin-top:40px">
+        <a href="index.html#booking" class="btn-primary">Book a Land Shoot</a>
+        <a href="index.html" class="btn-outline">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <img src="assets/logo/semilogo.png" alt="801 Aerial">
+    <p class="footer-copy">&copy; 2026 801 Aerial. All rights reserved.</p>
+    <nav class="footer-links">
+      <a href="real-estate.html">Real Estate</a>
+      <a href="land.html">Land & Lots</a>
+      <a href="index.html#booking">Book</a>
+      <a href="https://www.instagram.com/801aerial/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </footer>
+
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  </div>
+
+  <!-- ── VIDEO MODAL ── -->
+  <div class="video-modal" id="videoModal">
+    <button class="video-modal-close" onclick="closeVideo()">&#x2715;</button>
+    <video id="modalVideo" controls></video>
+  </div>
+
+  <script>
+    // Nav scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Hamburger
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Lightbox
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Video modal
+    function openVideo(src) {
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('modalVideo');
+      video.src = src;
+      modal.classList.add('open');
+      video.play();
+      document.body.style.overflow = 'hidden';
+    }
+    function closeVideo() {
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('modalVideo');
+      video.pause();
+      video.src = '';
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('videoModal').addEventListener('click', function(e) {
+      if (e.target === this) closeVideo();
+    });
+  </script>
+</body>
+</html>

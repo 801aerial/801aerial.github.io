@@ -375,6 +375,24 @@
       grid-template-columns: 1fr 1fr;
       gap: 2px;
     }
+    /* ── Focus cards ── */
+    .focus-card { position: relative; border-radius: 6px; overflow: hidden; text-decoration: none; display: block; min-height: 380px; transition: transform 0.3s; }
+    .focus-card:hover { transform: translateY(-4px); }
+    .focus-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.5s; }
+    .focus-card:hover .focus-bg { transform: scale(1.04); }
+    .focus-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%); }
+    .focus-content { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; min-height: 380px; padding: 32px; text-align: left; }
+    .focus-eyebrow { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .focus-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; line-height: 1.15; margin-bottom: 12px; color: #fff; }
+    .focus-desc { font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 20px; max-width: 320px; }
+    .focus-btn { display: inline-block; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--gold); border-bottom: 1px solid rgba(201,168,76,0.4); padding-bottom: 2px; transition: border-color 0.2s; }
+    .focus-card:hover .focus-btn { border-color: var(--gold); }
+    @media (max-width: 700px) {
+      #focus { padding: 64px 20px !important; }
+      #focus > div > div[style*="grid"] { grid-template-columns: 1fr !important; }
+      .focus-card, .focus-content { min-height: 300px; }
+    }
+    /* ── end focus cards ── */
     .service-card {
       background: var(--dark2);
       padding: 36px 28px;
@@ -953,10 +971,10 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="real-estate.html">Real Estate</a></li>
+      <li><a href="land.html">Land & Lots</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#showreel">Work</a></li>
       <li><a href="#booking" class="nav-cta">Book a Shoot</a></li>
     </ul>
     <div class="hamburger" id="hamburger" aria-label="Menu">
@@ -982,6 +1000,37 @@
     <div class="hero-scroll">
       <span>Scroll</span>
       <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── FOCUS AREAS ── -->
+  <section id="focus" style="padding:80px 48px;background:#0a0a0a;">
+    <div style="max-width:1100px;margin:0 auto;text-align:center">
+      <p class="section-label reveal">Explore By Specialty</p>
+      <h2 class="section-title reveal" style="margin-bottom:12px">Two Areas of Focus</h2>
+      <div class="divider reveal" style="margin:20px auto 48px"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <a href="real-estate.html" class="focus-card reveal reveal-delay-1">
+          <div class="focus-bg" style="background-image:url('assets/photos/hawthorne-alpine-1.jpg')"></div>
+          <div class="focus-overlay"></div>
+          <div class="focus-content">
+            <p class="focus-eyebrow">Photography &amp; Video</p>
+            <h3 class="focus-title">Residential<br>Real Estate</h3>
+            <p class="focus-desc">Luxury homes, custom builds, and residential listings. Aerial photos and video that sell.</p>
+            <span class="focus-btn">View Work &rarr;</span>
+          </div>
+        </a>
+        <a href="land.html" class="focus-card reveal reveal-delay-2">
+          <div class="focus-bg" style="background-image:url('assets/photos/land/pleasant-grove-land-1.jpg')"></div>
+          <div class="focus-overlay"></div>
+          <div class="focus-content">
+            <p class="focus-eyebrow">Aerial + Property Lines</p>
+            <h3 class="focus-title">Land &amp; Lot<br>Listings</h3>
+            <p class="focus-desc">Vacant lots, land parcels, and acreage. Includes property line overlays for every listing.</p>
+            <span class="focus-btn">View Work &rarr;</span>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 

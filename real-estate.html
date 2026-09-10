@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FRVR63Y1RW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FRVR63Y1RW');
+  </script>
+  <meta name="description" content="801 Aerial — professional drone photography and video for residential real estate, luxury homes, and custom home builders across Utah. Serving Salt Lake City, Utah County, Davis County, and Weber County.">
+  <meta name="keywords" content="drone photography real estate Utah, aerial photography luxury homes Utah, real estate drone photos Salt Lake City, home builder aerial photography Utah, aerial video tours Utah homes, drone photos residential listings Utah, luxury real estate photography Provo, aerial photography Pleasant Grove Utah">
+  <meta name="author" content="801 Aerial">
+  <meta property="og:title" content="801 Aerial | Residential Real Estate Drone Photography — Utah">
+  <meta property="og:description" content="Cinematic aerial drone photography and video for residential listings and custom home builders across Utah.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://801aerial.com/real-estate">
+  <meta property="og:image" content="https://801aerial.com/assets/photos/hawthorne-alpine-1.jpg">
+  <link rel="canonical" href="https://801aerial.com/real-estate">
+  <title>801 Aerial | Residential Real Estate Drone Photography — Utah</title>
+  <link rel="icon" type="image/png" href="assets/logo/semilogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #dbbe73;
+      --black: #080808;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; transition: background 0.4s, padding 0.4s; }
+    .nav.scrolled { background: rgba(8,8,8,0.95); backdrop-filter: blur(12px); padding: 14px 48px; }
+    .nav-logo img { height: 60px; width: auto; display: block; }
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 36px; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { background: var(--gold); color: #000 !important; padding: 10px 22px; border-radius: 2px; font-weight: 700; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: 0.3s; }
+
+    /* ── HERO ── */
+    .hero { position: relative; height: 85vh; min-height: 540px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,8,8,0.45) 0%, rgba(8,8,8,0.25) 50%, rgba(8,8,8,0.7) 100%); }
+    .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 24px; }
+    .hero-eyebrow { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 600; line-height: 1.15; margin-bottom: 28px; }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: 0.85rem; color: rgba(255,255,255,0.65); letter-spacing: 1px; margin-bottom: 40px; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+    .btn-primary { background: var(--gold); color: var(--black); text-decoration: none; font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 16px 36px; border-radius: 2px; transition: background 0.2s, transform 0.2s; border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; display: inline-block; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: #fff; text-decoration: none; font-size: 0.78rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 16px 36px; border-radius: 2px; border: 1px solid rgba(255,255,255,0.4); transition: border-color 0.2s, color 0.2s, transform 0.2s; display: inline-block; }
+    .btn-outline:hover { border-color: #fff; transform: translateY(-2px); }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 48px; }
+    .section-label { font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 600; line-height: 1.2; margin-bottom: 16px; }
+    .section-sub { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.9; max-width: 640px; }
+    .divider { width: 48px; height: 2px; background: var(--gold); margin: 24px 0; }
+    .inner { max-width: 1200px; margin: 0 auto; }
+
+    /* ── VALUE PROPS ── */
+    #value { background: #0d0d0d; }
+    .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .value-card { background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 36px 28px; }
+    .value-icon { font-size: 1.8rem; margin-bottom: 16px; }
+    .value-card h3 { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .value-card p { font-size: 0.84rem; color: rgba(255,255,255,0.55); line-height: 1.8; }
+
+    /* ── PORTFOLIO ── */
+    #portfolio { background: #080808; }
+    .portfolio-header { margin-bottom: 64px; }
+    .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 64px; }
+    .photo-item { position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; }
+    .photo-item img { width: 100%; height: 260px; object-fit: cover; display: block; transition: transform 0.4s; }
+    .photo-item:hover img { transform: scale(1.04); }
+    .photo-item.featured { grid-column: span 2; }
+    .photo-item.featured img { height: 360px; }
+    .photo-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.8); opacity: 0; transition: opacity 0.3s; }
+    .photo-item:hover .photo-caption { opacity: 1; }
+
+    /* ── VIDEOS ── */
+    #videos { background: #0a0a0a; }
+    .video-header { margin-bottom: 48px; }
+    .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .video-card { border-radius: 4px; overflow: hidden; position: relative; cursor: pointer; }
+    .video-card video { width: 100%; display: block; height: 280px; object-fit: cover; }
+    .video-play-overlay { position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.1)); transition: background 0.2s; }
+    .video-card:hover .video-play-overlay { background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.05)); }
+    .video-card-meta { display: flex; align-items: center; gap: 12px; }
+    .play-btn { width: 44px; height: 44px; border-radius: 50%; background: rgba(201,168,76,0.9); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .play-btn svg { width: 16px; height: 16px; fill: #000; margin-left: 3px; }
+    .video-card-label { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.75); }
+    .vertical-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .vertical-item { border-radius: 4px; overflow: hidden; position: relative; cursor: pointer; }
+    .vertical-item video { width: 100%; display: block; height: 340px; object-fit: cover; }
+    .vertical-item .video-play-overlay { padding: 16px; align-items: center; justify-content: center; }
+
+    /* ── CLIENTS ── */
+    #clients { background: #0d0d0d; }
+    .clients-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 56px; }
+    .client-card { background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 36px 32px; }
+    .client-name { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .client-desc { font-size: 0.84rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 20px; }
+    .client-tag { display: inline-block; font-size: 0.65rem; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid rgba(201,168,76,0.4); color: var(--gold); padding: 4px 10px; border-radius: 2px; margin-right: 6px; margin-bottom: 6px; }
+
+    /* ── CTA ── */
+    #cta { background: #080808; text-align: center; }
+    #cta .section-title { margin-bottom: 16px; }
+    #cta .section-sub { margin: 0 auto 40px; text-align: center; }
+    #cta .divider { margin: 24px auto; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer { background: #050505; border-top: 1px solid rgba(255,255,255,0.06); padding: 44px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    footer img { height: 44px; opacity: 0.7; }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; }
+    .lightbox.open { display: flex; }
+    .lightbox-img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 2px; }
+    .lightbox-close { position: absolute; top: 24px; right: 32px; background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; opacity: 0.7; }
+    .lightbox-close:hover { opacity: 1; }
+
+    /* ── VIDEO MODAL ── */
+    .video-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.97); z-index: 1000; align-items: center; justify-content: center; }
+    .video-modal.open { display: flex; }
+    .video-modal video { max-width: 90vw; max-height: 85vh; border-radius: 4px; }
+    .video-modal-close { position: absolute; top: 24px; right: 32px; background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; opacity: 0.7; }
+    .video-modal-close:hover { opacity: 1; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .nav { padding: 16px 20px; }
+      .nav.scrolled { padding: 12px 20px; }
+      .nav-logo img { height: 52px; }
+      .nav-links { display: none; flex-direction: column; position: fixed; top: 0; right: 0; bottom: 0; width: 260px; background: rgba(8,8,8,0.97); padding: 80px 32px 32px; gap: 24px; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      section { padding: 64px 20px; }
+      .value-grid { grid-template-columns: 1fr; }
+      .photo-grid { grid-template-columns: 1fr 1fr; }
+      .photo-item.featured { grid-column: span 2; }
+      .video-grid { grid-template-columns: 1fr; }
+      .vertical-strip { grid-template-columns: 1fr; }
+      .clients-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; padding: 36px 20px; }
+      .footer-links { justify-content: center; flex-wrap: wrap; gap: 16px; }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 540px) {
+      .hero-title { font-size: 2.2rem; }
+      .photo-grid { grid-template-columns: 1fr; }
+      .photo-item.featured { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="nav" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo/semilogo.png" alt="801 Aerial">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="real-estate.html">Real Estate</a></li>
+      <li><a href="land.html">Land & Lots</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#booking" class="nav-cta">Book a Shoot</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/photos/hawthorne-alpine-1.jpg">
+      <source src="assets/videos/horizontal/grove-alpine-parade.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Residential &nbsp;·&nbsp; Luxury &nbsp;·&nbsp; Custom Builds &nbsp;·&nbsp; Utah</p>
+      <h1 class="hero-title">Aerial That Makes<br>Listings <em>Sell</em></h1>
+      <p class="hero-sub">Cinematic drone photography and video for residential real estate and custom home builders across Utah. MLS-ready photos delivered within 24 hours.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="#portfolio" class="btn-primary">View Portfolio</a>
+        <a href="index.html#booking" class="btn-outline">Book a Shoot</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALUE PROPS ── */
+  <section id="value">
+    <div class="inner">
+      <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 56px">
+        <p class="section-label">What We Deliver</p>
+        <h2 class="section-title">More Than a Pretty Shot</h2>
+        <div class="divider" style="margin:24px auto"></div>
+        <p class="section-sub" style="margin:0 auto">Every listing deserves to be seen at its best. Our aerial content gives buyers the full picture — location, scale, views, and setting — in a way ground photos simply can't.</p>
+      </div>
+      <div class="value-grid">
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">📸</div>
+          <h3>MLS-Ready Photos</h3>
+          <p>High-resolution aerial stills color-corrected and delivered the same day or next morning — ready to upload directly to the MLS.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">🎬</div>
+          <h3>Cinematic Video</h3>
+          <p>Smooth, cinematic drone video tours that show off the property, the neighborhood, the mountain views, and the surrounding area.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon">⚡</div>
+          <h3>24-Hour Turnaround</h3>
+          <p>We know listings move fast. Photos are edited and delivered within 24 hours so you can go live without delays.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PORTFOLIO ── -->
+  <section id="portfolio">
+    <div class="inner">
+      <div class="portfolio-header">
+        <div class="reveal">
+          <p class="section-label">Photography</p>
+          <h2 class="section-title">Portfolio Gallery</h2>
+          <div class="divider"></div>
+          <p class="section-sub">A selection of aerial photography from residential listings and builder projects across Utah.</p>
+        </div>
+      </div>
+
+      <div class="photo-grid">
+        <div class="photo-item featured reveal" onclick="openLightbox('assets/photos/hawthorne-alpine-1.jpg')">
+          <img src="assets/photos/hawthorne-alpine-1.jpg" alt="Aerial drone photo luxury home Alpine Utah" loading="lazy">
+          <div class="photo-caption">Alpine, Utah County</div>
+        </div>
+        <div class="photo-item reveal reveal-delay-1" onclick="openLightbox('assets/photos/hawthorne-alpine-2.png')">
+          <img src="assets/photos/hawthorne-alpine-2.png" alt="Aerial photography luxury residence Alpine Utah" loading="lazy">
+          <div class="photo-caption">Alpine Estate</div>
+        </div>
+        <div class="photo-item reveal reveal-delay-1" onclick="openLightbox('assets/photos/grove-alpine-custom.png')">
+          <img src="assets/photos/grove-alpine-custom.png" alt="Aerial drone photo custom home Alpine Utah" loading="lazy">
+          <div class="photo-caption">Custom Build — Alpine</div>
+        </div>
+        <div class="photo-item reveal reveal-delay-2" onclick="openLightbox('assets/photos/hawthorne-lehi.png')">
+          <img src="assets/photos/hawthorne-lehi.png" alt="Aerial photography residential home Lehi Utah" loading="lazy">
+          <div class="photo-caption">Lehi, Utah County</div>
+        </div>
+        <div class="photo-item reveal reveal-delay-2" onclick="openLightbox('assets/photos/grove-alpine-parade.png')">
+          <img src="assets/photos/grove-alpine-parade.png" alt="Aerial photo custom home parade of homes Alpine Utah" loading="lazy">
+          <div class="photo-caption">Parade of Homes — Alpine</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VIDEOS ── -->
+  <section id="videos" style="background:#0a0a0a">
+    <div class="inner">
+      <div class="video-header reveal">
+        <p class="section-label">Video Work</p>
+        <h2 class="section-title">Cinematic Tours</h2>
+        <div class="divider"></div>
+        <p class="section-sub">Drone video content from residential listings and custom home projects. Click any clip to watch.</p>
+      </div>
+
+      <div class="video-grid">
+        <div class="video-card reveal reveal-delay-1" onclick="openVideo('assets/videos/horizontal/grove-alpine-custom.mp4')">
+          <video muted preload="none" src="assets/videos/horizontal/grove-alpine-custom.mp4" poster="assets/photos/grove-alpine-custom.png"></video>
+          <div class="video-play-overlay">
+            <div class="video-card-meta">
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+              <span class="video-card-label">Grove Homes — Alpine Custom</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-2" onclick="openVideo('assets/videos/horizontal/grove-alpine-parade.mp4')">
+          <video muted preload="none" src="assets/videos/horizontal/grove-alpine-parade.mp4" poster="assets/photos/grove-alpine-parade.png"></video>
+          <div class="video-play-overlay">
+            <div class="video-card-meta">
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+              <span class="video-card-label">Grove Homes — Parade of Homes</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-1" onclick="openVideo('assets/videos/horizontal/apex-farmington-barn.mp4')">
+          <video muted preload="none" src="assets/videos/horizontal/apex-farmington-barn.mp4"></video>
+          <div class="video-play-overlay">
+            <div class="video-card-meta">
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+              <span class="video-card-label">Apex Structures — Farmington Estate</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-2" onclick="openVideo('assets/videos/horizontal/apex-holiday-brick.mp4')">
+          <video muted preload="none" src="assets/videos/horizontal/apex-holiday-brick.mp4"></video>
+          <div class="video-play-overlay">
+            <div class="video-card-meta">
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+              <span class="video-card-label">Apex Structures — Holiday</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vertical-strip">
+        <div class="vertical-item reveal reveal-delay-1" onclick="openVideo('assets/videos/vertical/grove-alpine-parade-vertical.mp4')">
+          <video muted preload="none" src="assets/videos/vertical/grove-alpine-parade-vertical.mp4"></video>
+          <div class="video-play-overlay">
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+        </div>
+        <div class="vertical-item reveal reveal-delay-2" onclick="openVideo('assets/videos/vertical/apex-farmington-barn-1-vertical.mp4')">
+          <video muted preload="none" src="assets/videos/vertical/apex-farmington-barn-1-vertical.mp4"></video>
+          <div class="video-play-overlay">
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+        </div>
+        <div class="vertical-item reveal reveal-delay-3" onclick="openVideo('assets/videos/horizontal/apex-huntsville-garage.mp4')">
+          <video muted preload="none" src="assets/videos/horizontal/apex-huntsville-garage.mp4"></video>
+          <div class="video-play-overlay">
+            <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CLIENTS ── -->
+  <section id="clients" style="background:#0d0d0d">
+    <div class="inner">
+      <div class="reveal" style="margin-bottom:56px">
+        <p class="section-label">Clients</p>
+        <h2 class="section-title">Who We Work With</h2>
+        <div class="divider"></div>
+        <p class="section-sub">From luxury custom builders to individual real estate agents, we serve clients across the Utah market.</p>
+      </div>
+      <div class="clients-grid">
+        <div class="client-card reveal reveal-delay-1">
+          <p class="client-name">Apex Structures</p>
+          <p class="client-desc">Ongoing aerial content for a custom home builder operating across Davis and Weber County — including luxury estates in Farmington, Holiday, and Huntsville.</p>
+          <span class="client-tag">Custom Builds</span>
+          <span class="client-tag">Davis County</span>
+          <span class="client-tag">Weber County</span>
+        </div>
+        <div class="client-card reveal reveal-delay-2">
+          <p class="client-name">Grove Homes</p>
+          <p class="client-desc">Aerial photo and video for new custom home builds in Alpine — including Parade of Homes features and spec listings in Utah's luxury corridor.</p>
+          <span class="client-tag">Custom Builds</span>
+          <span class="client-tag">Utah County</span>
+          <span class="client-tag">Parade of Homes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section id="cta">
+    <div class="inner">
+      <div class="reveal">
+        <p class="section-label">Get Started</p>
+        <h2 class="section-title">Have a Listing?</h2>
+        <div class="divider"></div>
+        <p class="section-sub">Packages start at $250. We serve all of Utah — Salt Lake County, Utah County, Davis County, Weber County, and beyond. FAA Part 107 certified, MLS-ready files delivered within 24 hours.</p>
+      </div>
+      <div class="cta-btns reveal reveal-delay-1" style="margin-top:40px">
+        <a href="index.html#booking" class="btn-primary">Book a Real Estate Shoot</a>
+        <a href="land.html" class="btn-outline">View Land & Lot Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <img src="assets/logo/semilogo.png" alt="801 Aerial">
+    <p class="footer-copy">&copy; 2026 801 Aerial. All rights reserved.</p>
+    <nav class="footer-links">
+      <a href="real-estate.html">Real Estate</a>
+      <a href="land.html">Land & Lots</a>
+      <a href="index.html#booking">Book</a>
+      <a href="https://www.instagram.com/801aerial/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </footer>
+
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  </div>
+
+  <!-- ── VIDEO MODAL ── -->
+  <div class="video-modal" id="videoModal">
+    <button class="video-modal-close" onclick="closeVideo()">&#x2715;</button>
+    <video id="modalVideo" controls></video>
+  </div>
+
+  <script>
+    // Nav scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Hamburger
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Lightbox
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Video modal
+    function openVideo(src) {
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('modalVideo');
+      video.src = src;
+      modal.classList.add('open');
+      video.play();
+      document.body.style.overflow = 'hidden';
+    }
+    function closeVideo() {
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('modalVideo');
+      video.pause();
+      video.src = '';
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('videoModal').addEventListener('click', function(e) {
+      if (e.target === this) closeVideo();
+    });
+  </script>
+</body>
+</html>
